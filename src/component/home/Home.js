@@ -23,7 +23,7 @@ import {
   heightPercentageToDP as heightPercentage,
 } from 'react-native-responsive-screen';
 import Header from '../custom/Header';
-// import {notification} from '../Notification/Notification';
+import {notification} from '../Notification/NotificationIOS';
 
 export default class Home extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ export default class Home extends Component {
     return `${h} : ${m}: ${s} `;
   };
   Notifi = data => {
-    // console.log('title==', data.Title);
+    console.log('title==', data.Title);
     const option = {
       soundName: 'default',
       playSound: true,
@@ -67,22 +67,24 @@ export default class Home extends Component {
        
        case 'check in':
         notification.configure();
-        notification.PushChancel('1');
+        // notification.PushChancel('Cảm ơn đã Check In',
+        // `Bạn đã Check In lúc ${data.timeCheckIn}`,);
         notification.PushNotifi(
-          '1',
+          // '1',
           'Cảm ơn đã Check In',
           `Bạn đã Check In lúc ${data.timeCheckIn}`,
-          option,
+          // option,
         );
         break;
       case 'check out':
         notification.configure();
-        notification.PushChancel('1');
+        // notification.PushChancel('Cảm ơn đã Check In',
+        // `Bạn đã Check In lúc ${data.timeCheckIn}`,);
         notification.PushNotifi(
-          '1',
+          // '1',
           'Cảm ơn đã Check Out',
           `Bạn đã Check Out lúc ${data.timeCheckIn}`,
-          option,
+          // option,
         );
         break;
     }
@@ -202,10 +204,10 @@ export default class Home extends Component {
             {this.state.title === 'check in' ? (
               <TouchableOpacity
                 onPress={() => {
-                  // this.Notifi({
-                  //   timeCheckIn: this.state.time,
-                  //   Title: this.state.title,
-                  // });
+                  this.Notifi({
+                    timeCheckIn: this.state.time,
+                    Title: this.state.title,
+                  });
                   this.setState({timeIn: this.state.time});
                   this.setState({checkIn: false});
                   this.setState({title: 'check out'});
@@ -234,10 +236,10 @@ export default class Home extends Component {
             ) : (
               <TouchableOpacity
                 onPress={() => {
-                  // this.Notifi({
-                  //   timeCheckIn: this.state.time,
-                  //   Title: this.state.title,
-                  // });
+                  this.Notifi({
+                    timeCheckIn: this.state.time,
+                    Title: this.state.title,
+                  });
                   this.setState({timeOut: this.state.time});
                   this.setState({checkOut: false});
                   // this.setState({title: 'check in'});

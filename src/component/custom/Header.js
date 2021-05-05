@@ -53,7 +53,8 @@ const Header = props => {
   const images = image => (
     // console.log(props.image;
 
-    <View
+    <TouchableOpacity 
+    onPress={()=>props.onPressImage()}
       style={{
         width: 30,
         height: 30,
@@ -76,7 +77,7 @@ const Header = props => {
       ></Image>
 
       {/* </View> */}
-    </View>
+    </TouchableOpacity>
   );
   const textRight = () => (
     <TouchableOpacity
@@ -138,7 +139,8 @@ Header.defaultProps = {
   onPressBack: () => {},
   onPressMenu: () => {},
   iconRight :()=>{},
-  onPressNavigate:()=>{}
+  onPressNavigate:()=>{},
+  onPressImage :()=>{}
 };
 const styles = StyleSheet.create({
   container: {

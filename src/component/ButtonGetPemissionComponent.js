@@ -35,6 +35,8 @@ export default class Buttons extends Component {
         <Header
           title="Get Permission"
           isShowRight
+          isShowMenu
+          onPressMenu={() => this.props.navigation.openDrawer()}
           iconRight={() => {
             this.props.navigation.navigate('AddRequiesComponent');
           }}
@@ -47,7 +49,7 @@ export default class Buttons extends Component {
             width: screenWidth,
             flex: 1,
           }}>
-          <View style={{paddingTop: 10}}>
+          {/* <View style={{paddingTop: 10}}>
             <View
               style={[
                 {
@@ -99,9 +101,11 @@ export default class Buttons extends Component {
                 </TouchableOpacity>
               ))}
             </View>
-          </View>
+          </View> */}
 
-          <View style={{paddingHorizontal: 15, flex: 1, marginBottom: 40}}>
+          <View style={{paddingHorizontal: 15, flex: 1, 
+            marginBottom: 40
+            }}>
             <View
               style={{
                 flex: 1,

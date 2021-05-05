@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {
   View,
   Button,
@@ -12,9 +12,20 @@ import Sizes from '../../utils/Sizes';
 import {colors, screenWidth, screenHeight} from '../../res/style/theme';
 import moment from 'moment';
 
-export const DatetimePicker = () => {
+export const DatetimePicker = (props) => {
+  
+  useEffect(() => {
+  console.log('====================================');
+  console.log('props==',props.showdate);
+  console.log('====================================');
+  if ( props.showdate === false){
+    setShow(false);
+  setShow1(false);
+  setShow2(false);
+  setShow3(false);
+  }
+  }, [props])
   //==========================================================================
-  // disabled
   const [disabled1, setDisabled1] = useState(false);
   const [date, setDate] = useState(new Date());
   const [minDate, setMinDate] = useState(new Date());

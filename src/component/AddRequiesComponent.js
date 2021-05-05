@@ -36,6 +36,7 @@ export default class AddRequiesComponent extends Component {
       typeChoose: '',
       typeChooseTime: 'ChooseTime',
       typeChooseSession: 'ChooseSession',
+      Showdate : '',
 
       dataTime: [
         {title: 'One day', value: 'asda123sdasd'},
@@ -76,6 +77,9 @@ export default class AddRequiesComponent extends Component {
     console.log('title==', title);
     this.setState({typeChooseSession: title});
   };
+  onChange =()=>{
+    this.setState({Showdate:false})
+  }
 
   render() {
     console.log('this.state.typeChoose==', this.state.typeChoose);
@@ -325,7 +329,7 @@ export default class AddRequiesComponent extends Component {
                   </View>
                 </View>
               ) : null}
-              {this.state.typeChoose === 3 ? <DatetimePicker /> : null}
+              {this.state.typeChoose === 3 ? <DatetimePicker  showdate = {this.state.Showdate}/> : null}
 
               <Text
                 style={{
@@ -344,6 +348,7 @@ export default class AddRequiesComponent extends Component {
                   marginTop: 10,
                 }}>
                 <TextInput
+                onFocus={()=>this.onChange()}
                   style={{
                     width: '90%',
                     borderWidth: 1,

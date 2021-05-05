@@ -195,12 +195,15 @@ export default class CompanyMemberComponent extends Component {
           title="Company Member"
           isShowImage
           image={this.state.imageAvt}
+          // onPressImage={()=>this.props.navigation.navigate('InfoPerson')}
+          isShowMenu
+          onPressMenu={() => this.props.navigation.openDrawer()}
         />
         {this.props.loadingCM && <LoadingView />}
 
         <ImageBackground
           source={Images.ic_bg_timecard}
-          style={{height: screenHeight, width: screenWidth}}>
+          style={{height: screenHeight, width: screenWidth , flex:1}}>
           <View
             style={{
               marginTop: 5,
@@ -222,7 +225,7 @@ export default class CompanyMemberComponent extends Component {
               }}>
               <Icon
                 name="search"
-                style={{color: '#BFBFBF', marginLeft: 10}}
+                style={{color: '#BFBFBF', marginLeft: 10 , flex:0.1}}
                 size={20}
               />
               <TextInput
@@ -238,21 +241,27 @@ export default class CompanyMemberComponent extends Component {
                 }}
                 style={{
                   
+                  flex:0.9,
+                  
                   height: 40,
                 }}
                 placeholder="Search name..."></TextInput>
             </View>
             
           </View>
-
-          <ScrollView nestedScrollEnabled>
+          <View style={{marginBottom:40  , flex:1}}>
+               <ScrollView nestedScrollEnabled >
             <FlatList
               data={this.state.dataMB}
+              
               keyExtractor={(item, index) => String(index)}
               renderItem={this.renderItem}
               numColumns={2}
             />
           </ScrollView>
+          </View>
+
+       
         </ImageBackground>
       </View>
     );

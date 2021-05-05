@@ -154,6 +154,7 @@ export default class YourGetPermissionComponent extends Component {
     return (
       <FlatList
         contentContainerStyle={{flexGrow: 1,}}
+        keyExtractor={(item, index) => String(index)}
         data={this.state.data}
         renderItem={this.renderItem}
       />

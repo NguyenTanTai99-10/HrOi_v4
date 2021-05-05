@@ -138,6 +138,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderColor: 'pink',
                 borderWidth: 1,
                 borderRadius: 20,
+                height:50
               }}>
               <Text style={{paddingHorizontal: 10}}>Họ và tên :</Text>
               <TextInput
@@ -156,6 +157,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderColor: 'pink',
                 borderWidth: 1,
                 borderRadius: 20,
+                height:50
               }}>
               <Text style={{paddingHorizontal: 10}}>Ngày sinh :</Text>
               <TextInput
@@ -171,6 +173,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderColor: 'pink',
                 borderWidth: 1,
                 borderRadius: 20,
+                height:50
               }}>
               <Text style={{paddingHorizontal: 10}}>Gmail :</Text>
               <TextInput
@@ -186,6 +189,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderColor: 'pink',
                 borderWidth: 1,
                 borderRadius: 20,
+                height:50
               }}>
               <Text style={{paddingHorizontal: 10}}>Số điện thoại :</Text>
               <TextInput
@@ -201,6 +205,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderColor: 'pink',
                 borderWidth: 1,
                 borderRadius: 20,
+                height:50
               }}>
               <Text style={{paddingHorizontal: 10}}>Nghề nghiệp :</Text>
               <TextInput

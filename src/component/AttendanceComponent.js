@@ -98,6 +98,8 @@ export default class AttendanceComponent extends Component {
     return (
       <View style={{flex: 1}}>
         <Header title="Attendance Time"
+        isShowMenu
+        onPressMenu={() => this.props.navigation.openDrawer()}
         
         />
         <ImageBackground
