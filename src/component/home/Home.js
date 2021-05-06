@@ -113,7 +113,7 @@ export default class Home extends Component {
         <Header
           isShowMenu
           onPressMenu={() => this.props.navigation.openDrawer()}
-          title="Home"
+          title="Trang Chủ"
         />
         
         <ImageBackground
@@ -178,7 +178,7 @@ export default class Home extends Component {
             }}>
             <TouchableOpacity
             onPress={()=>{
-              this.props.navigation.navigate('RequireLateContainer')
+              this.props.navigation.navigate('Test')
             }}
             >
               <ImageBackground

@@ -22,7 +22,7 @@ const listMenu = [
   {title: 'Đổi mật khẩu', icon: Images.ic_lock1, screen: 'ChangePasswordContainer'},
   {title: 'Thông tin chi tiết', icon: Images.ic_info, screen: ''},
   {title: 'Hướng dẫn sử dụng', icon: Images.ic_guide, screen: ''},
-  {title: 'Cài đặt', icon: Images.ic_setting, screen: ''},
+  {title: 'Cài đặt', icon: Images.ic_setting, screen: 'SettingLanguage'},
 ];
 
 export default class DrawerComponent extends Component {

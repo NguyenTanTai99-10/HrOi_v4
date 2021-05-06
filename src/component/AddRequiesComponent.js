@@ -34,17 +34,17 @@ export default class AddRequiesComponent extends Component {
       disabled: false,
       ListDate: '',
       typeChoose: '',
-      typeChooseTime: 'ChooseTime',
-      typeChooseSession: 'ChooseSession',
+      typeChooseTime: 'Chọn thời gian',
+      typeChooseSession: 'Chọn buổi',
       Showdate : '',
 
       dataTime: [
-        {title: 'One day', value: 'asda123sdasd'},
-        {title: 'Half a day', value: 'asda123123sdasd'},
+        {title: 'Một ngày', value: 'asda123sdasd'},
+        {title: 'Nữa ngày', value: 'asda123123sdasd'},
       ],
       dataSession: [
-        {title: 'Morning', value: 'asda123sdasd'},
-        {title: 'Afternoon', value: 'asda123123sdasd'},
+        {title: 'Sáng', value: 'asda123sdasd'},
+        {title: 'Chiều', value: 'asda123123sdasd'},
       ],
     };
     this.modal1 = React.createRef();
@@ -89,7 +89,7 @@ export default class AddRequiesComponent extends Component {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title="Add Your Request"
+          title="Thêm yêu cầu"
         />
         <TouchableWithoutFeedback
           onPress={() => {
@@ -109,7 +109,7 @@ export default class AddRequiesComponent extends Component {
                   // marginVertical: 20,
                 }}>
                 <Text style={{fontSize: 15, fontWeight: '700'}}>
-                  Type request *{' '}
+                  Dạng yêu cầu *{' '}
                 </Text>
                 <View
                   style={[
@@ -205,7 +205,7 @@ export default class AddRequiesComponent extends Component {
                         fontSize: 16,
                         marginTop: 10,
                       }}>
-                      {'Total days : ' +
+                      {'Số ngày : ' +
                         ((this.state.ListDate.length + '').length < 2
                           ? '0' + this.state.ListDate.length
                           : this.state.ListDate.length)}
@@ -310,7 +310,7 @@ export default class AddRequiesComponent extends Component {
                       marginTop: 10,
                       marginLeft: 20,
                     }}>
-                    Minutes *
+                    Thời gian *
                   </Text>
                   <View
                     style={{
@@ -321,7 +321,7 @@ export default class AddRequiesComponent extends Component {
                     <TextInputAnimated
                       //  isPassword
                       //  style={{height:50}}
-                      label="Minutes"
+                      label="Thời gian (giờ,phút)"
                       value={this.state.DateStart}
                       onChangeText={this.onChangeDateStart}
                       onPressClear={this.onClearDateStart}
@@ -338,7 +338,7 @@ export default class AddRequiesComponent extends Component {
                   marginTop: 10,
                   marginLeft: 20,
                 }}>
-                Note *
+                Ghi chú *
               </Text>
               <View
                 style={{
@@ -375,7 +375,7 @@ export default class AddRequiesComponent extends Component {
                     borderRadius: 10,
                   }}>
                   <Text style={{color: 'white', fontWeight: '700'}}>
-                    Submit
+                    XÁC NHẬN
                   </Text>
                 </TouchableOpacity>
               </View>

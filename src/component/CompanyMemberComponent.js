@@ -192,7 +192,7 @@ export default class CompanyMemberComponent extends Component {
     return (
       <View style={{flex: 1}}>
         <Header
-          title="Company Member"
+          title="Thành Viên"
           isShowImage
           image={this.state.imageAvt}
           // onPressImage={()=>this.props.navigation.navigate('InfoPerson')}

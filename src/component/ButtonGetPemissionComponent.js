@@ -33,7 +33,7 @@ export default class Buttons extends Component {
     return (
       <View style={{flex: 1}}>
         <Header
-          title="Get Permission"
+          title="Xin Phép"
           isShowRight
           isShowMenu
           onPressMenu={() => this.props.navigation.openDrawer()}

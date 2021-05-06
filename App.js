@@ -34,6 +34,12 @@ import ButtonGetPemissionComponent from './src/component/ButtonGetPemissionCompo
 import CheckGetPemissionContainer from './src/container/GetPermissionContainer/CheckGetPemissionContainer';
 import AddRequiesComponent from './src/component/AddRequiesComponent';
 import UpdateInfoPersonContainer from './src/container/UpdateInfoPersonContainer/UpdateInfoPersonContainer';
+import Test from './src/component/Test';
+import i18n from './src/Language/LanguageContext';
+import Test2 from './src/component/Test2';
+import SettingLanguage from './src/component/SettingLanguage';
+
+
 
 
 
@@ -141,6 +147,12 @@ const App = () => {
             {/* InfoMemberComponent */}
             {/* CheckGetPemissionContainer */}
             {/* AddRequiesComponent */}
+            <Stack.Screen name="Test" component={Test} />
+            <Stack.Screen name="Test2" component={Test2} />
+            <Stack.Screen name="SettingLanguage" component={SettingLanguage} />
+            {/* SettingLanguage */}
+            {/* Test */}
+            {/* Test2 */}
             
             
          </Stack.Navigator>

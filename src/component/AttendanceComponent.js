@@ -9,47 +9,47 @@ export default class AttendanceComponent extends Component {
     super(props);
     this.state = {
       data: [
-        {date: '12/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '13/3/2021', time: '8:30/17:30', status: 'late'},
-        {date: '14/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '16/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '17/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '18/3/2021', time: '8:30/17:30', status: 'late'},
-        {date: '19/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '20/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '16/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '17/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '18/3/2021', time: '8:30/17:30', status: 'late'},
-        {date: '19/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '20/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '16/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '17/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '18/3/2021', time: '8:30/17:30', status: 'late'},
-        {date: '19/3/2021', time: '8:30/17:30', status: 'ontime'},
-        {date: '20/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
-        {date: '21/3/2021', time: '8:30/17:30', status: 'early'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
       ],
     };
   }
   ChooseColor = (item) =>{
     switch(item){
-      case "ontime" :
+      case "Đúng giờ" :
       return "blue";
       break;
-      case "late" :
+      case "Trễ giờ" :
       return "red";
       break;
-      case "early" :
+      case "Đến sớm" :
       return "orange";
       break;
     }
@@ -97,7 +97,7 @@ export default class AttendanceComponent extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <Header title="Attendance Time"
+        <Header title="Điểm danh"
         isShowMenu
         onPressMenu={() => this.props.navigation.openDrawer()}
         
@@ -123,9 +123,12 @@ export default class AttendanceComponent extends Component {
                   height: 50,
                   borderRadius: 10,
                 }}>
-                <Text style={{marginLeft: 10, color: 'white'}}>Date</Text>
-                <Text style={{color: 'white'}}>Time Checkin/Checkout</Text>
-                <Text style={{marginRight: 10, color: 'white'}}>Status</Text>
+                <Text style={{marginLeft: 10, color: 'white'}}>Ngày tháng</Text>
+                <View>
+                <Text style={{color: 'white' , alignSelf:"center"}}>Thời gian </Text>
+                <Text style={{color: 'white'}}>Checkin/Checkout </Text>
+                  </View>
+                <Text style={{marginRight: 10, color: 'white'}}>Trạng Thái</Text>
               </View>
             </ImageBackground>
             

@@ -18,37 +18,37 @@ export default class YourGetPermissionComponent extends Component {
     this.state = {
       data: [
         {
-          status: 'approved',
+          status: 'Đồng ý',
           require: ' xin ve som',
           timeapply: '08:30-17h30 20-12-2012',
           timerequest: '08:15 19-12-2012',
         },
         {
-          status: 'watting',
+          status: 'Chờ đợi',
           require: ' xin ve som',
           timeapply: '08:30-17h30 20-12-2012',
           timerequest: '08:15 19-12-2012',
         },
         {
-          status: 'decline',
+          status: 'Từ chối',
           require: ' xin ve som',
           timeapply: '08:30-17h30 20-12-2012',
           timerequest: '08:15 19-12-2012',
         },
         {
-          status: 'watting',
+          status: 'Đồng ý',
           require: ' xin ve som',
           timeapply: '08:30-17h30 20-12-2012',
           timerequest: '08:15 19-12-2012',
         },
         {
-          status: 'decline',
+          status: 'Chờ đợi',
           require: ' xin ve som',
           timeapply: '08:30-17h30 20-12-2012',
           timerequest: '08:15 19-12-2012',
         },
         {
-          status: 'approved',
+          status: 'Từ chối',
           require: ' xin ve som',
           timeapply: '08:30-17h30 20-12-2012',
           timerequest: '08:15 19-12-2012',
@@ -58,26 +58,26 @@ export default class YourGetPermissionComponent extends Component {
   }
   chooseImage = item => {
     switch (item.status) {
-      case 'approved':
+      case 'Đồng ý':
         return Images.icon_approved;
         break;
-      case 'watting':
+      case 'Chờ đợi':
         return Images.icon_waiting;
         break;
-      case 'decline':
+      case 'Từ chối':
         return Images.icon_decline;
         break;
     }
   };
   chooseColor = item => {
     switch (item.status) {
-      case 'approved':
+      case 'Đồng ý':
         return '#4DD077';
         break;
-      case 'watting':
+      case 'Chờ đợi':
         return '#FFC069';
         break;
-      case 'decline':
+      case 'Từ chối':
         return 'red';
         break;
     }
@@ -128,7 +128,7 @@ export default class YourGetPermissionComponent extends Component {
             alignItems: 'flex-start',
           }}>
           <Icon name="clock" size={20} style={{color: 'gray'}} />
-          <Text style={{marginLeft: 5, color: 'gray'}}>Time apply :</Text>
+          <Text style={{marginLeft: 5, color: 'gray'}}>Thời gian đăng ký:</Text>
           <Text style={{marginLeft: 5, color: 'gray', flex: 1}}>
             {item.item.timeapply}
           </Text>
@@ -141,7 +141,7 @@ export default class YourGetPermissionComponent extends Component {
             alignItems: 'flex-start',
           }}>
           <Icon name="clock" size={20} style={{color: 'gray'}} />
-          <Text style={{marginLeft: 5, color: 'gray'}}>Time request :</Text>
+          <Text style={{marginLeft: 5, color: 'gray'}}>Thời gian yêu cầu :</Text>
           <Text style={{marginLeft: 5, color: 'gray', flex: 1}}>
             {item.item.timerequest}
           </Text>

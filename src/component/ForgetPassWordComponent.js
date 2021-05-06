@@ -88,7 +88,7 @@ export default class ForgetPassWordComponent extends Component {
                   alignItems: 'center',
                 }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>
-                  CONFIRM
+                  XÁC NHẬN
                 </Text>
               </TouchableOpacity>
             </View>

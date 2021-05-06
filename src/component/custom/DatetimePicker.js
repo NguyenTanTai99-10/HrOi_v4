@@ -30,7 +30,7 @@ export const DatetimePicker = (props) => {
   const [date, setDate] = useState(new Date());
   const [minDate, setMinDate] = useState(new Date());
 
-  const [DateStart, setDateStart] = useState('Day Start');
+  const [DateStart, setDateStart] = useState('Ngày bắt đầu');
 
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -55,7 +55,7 @@ export const DatetimePicker = (props) => {
 
   //================================================================
   const [date1, setDate1] = useState(new Date());
-  const [DateEnd, setDateEnd] = useState('Day End');
+  const [DateEnd, setDateEnd] = useState('Ngày kết thúc');
 
   const [mode1, setMode1] = useState('date');
   const [show1, setShow1] = useState(false);
@@ -79,7 +79,7 @@ export const DatetimePicker = (props) => {
 
   //==========================================================================
   const [date2, setDate2] = useState(new Date());
-  const [TimeStart, seTimeStart] = useState('Time Start');
+  const [TimeStart, seTimeStart] = useState('Thời gian bắt đầu');
   const [mode2, setMode2] = useState('date');
   const [show2, setShow2] = useState(false);
 
@@ -110,7 +110,7 @@ export const DatetimePicker = (props) => {
   //================================================================
   //   //==========================================================================
   const [date3, setDate3] = useState(new Date());
-  const [TimeEnd, seTimeEnd] = useState('Time End');
+  const [TimeEnd, seTimeEnd] = useState('Thời gian kết thúc');
   const [mode3, setMode3] = useState('date');
   const [show3, setShow3] = useState(false);
 

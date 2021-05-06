@@ -24,13 +24,13 @@ export default class ListShow extends Component {
       expande: false,
       dapan: '',
       selectItem:'',
-      titleChoose :'Type Requiest',
+      titleChoose :'Dạng yêu cầu',
       data: [
-        {type: 1, title: 'Unpaid request'},
-        {type: 2, title: 'Official Leave'},
-        {type: 3, title: 'OT'},
-        {type: 4, title: 'Late'},
-        {type: 5, title: 'Soon'},
+        {type: 1, title: 'Yêu cầu chưa thanh toán'},
+        {type: 2, title: 'Nghỉ chính thức'},
+        {type: 3, title: 'Tăng ca'},
+        {type: 4, title: 'Đến trễ'},
+        {type: 5, title: 'Đến Sớm'},
       ],
     };
   }

@@ -223,7 +223,7 @@ export default class UpdateInfoPersonComponent extends Component {
                   height: 50,
                   borderRadius: 8,
                 }}>
-                <Text style={{color: 'white', fontWeight: 'bold'}}>UPDATE</Text>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>XÁC NHẬN</Text>
               </TouchableOpacity>
             </View>
             <BottomSheetPhoto

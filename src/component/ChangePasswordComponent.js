@@ -47,7 +47,7 @@ onClearPassword= () => {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title="Change Password"
+          title="Thay đổi mật khẩu"
         />
         <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}
@@ -122,7 +122,7 @@ onClearPassword= () => {
                   alignItems: 'center',
                 }}>
                 <Text style={{color: 'white', fontWeight: 'bold'}}>
-                  CONFIRM
+                  XÁC NHẬN
                 </Text>
               </TouchableOpacity>
 

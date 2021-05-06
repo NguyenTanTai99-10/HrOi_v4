@@ -89,7 +89,7 @@ const Header = props => {
         alignItems: 'center',}}
       onPress={() => props.onPressNavigate()}>
       <Text  style={{color:'white', fontSize:17 ,fontWeight: '700',}} >
-        Edit
+        Sửa
       </Text>
     </TouchableOpacity>
   );

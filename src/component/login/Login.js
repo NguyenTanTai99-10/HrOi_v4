@@ -13,6 +13,7 @@ import {
    Image,
    Platform
 } from 'react-native';
+import { withTranslation } from 'react-i18next';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Images from '../../res/image';
@@ -23,7 +24,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingView from '../custom/LoadingView';
 const logoSize = screenWidth * 0.5;
 const duration = 350;
-export default class Login extends Component {
+class Login extends Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -184,7 +185,7 @@ export default class Login extends Component {
 
 
                <TextInputAnimated
-                  label="Tên đăng nhập hoặc Email"
+                  label={this.props.t('Tên đăng nhập')}
                   style={styles.input}
                   value={this.state.username}
                   onChangeText={this.onChangeUsername}
@@ -193,7 +194,7 @@ export default class Login extends Component {
                <TextInputAnimated
                   isPassword
                   style={styles.input}
-                  label="Mật khẩu"
+                  label={this.props.t('Mật khẩu')}
                   value={this.state.password}
                   onChangeText={this.onChangePassword}
                   onPressClear={this.onClearPassword}
@@ -207,12 +208,12 @@ export default class Login extends Component {
                      size={16}
                      color={colors.blue}
                   />
-                  <Text style={styles.txtSave}>Ghi nhớ đăng nhập</Text>
+                  <Text style={styles.txtSave}>{this.props.t('Ghi nhớ')}</Text>
                </TouchableOpacity>
                <TouchableOpacity style={styles.btnLogin}
                   onPress={this.onPressLogin}
                >
-                  <Text style={styles.txtBtnLogin}>Đăng nhập</Text>
+                  <Text style={styles.txtBtnLogin}>{this.props.t('Đăng nhập')}</Text>
                </TouchableOpacity>
 
                {/* ////////////////////// */}
@@ -221,13 +222,13 @@ export default class Login extends Component {
                      style={styles.subView}
                      onPress={() => this.props.navigation.navigate('FogetPasswordConatiner')}
                   >
-                     <Text style={styles.txtsignup}>Quên mật khẩu</Text>
+                     <Text style={styles.txtsignup}>{this.props.t('Quên mật khẩu')}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                      style={styles.subView}
                   // onPress={() => this.props.navigation.navigate('SignUp')}
                   >
-                     <Text style={styles.txtsignup}>Đăng ký</Text>
+                     <Text style={styles.txtsignup}>{this.props.t('Đăng kí')}</Text>
                   </TouchableOpacity>
                </View>
                <View style={styles.view}>
@@ -311,7 +312,7 @@ const styles = StyleSheet.create({
       width: '47%',
    },
    txtsignup: {
-      fontSize: 16,
+      fontSize: 15,
       textAlign: 'center',
       color: colors.white,
       // fontFamily: fonts.semibold,
@@ -329,5 +330,6 @@ const styles = StyleSheet.create({
       // fontFamily: fonts.medium,
    },
 });
+export default withTranslation()(Login);
 
 
