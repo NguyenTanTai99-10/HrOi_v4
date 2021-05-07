@@ -17,8 +17,8 @@ import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import Images from '../res/image';
 import CheckGetPemissionContainer from '../container/GetPermissionContainer/CheckGetPemissionContainer';
 import YourGetPermissionContainer from '../container/GetPermissionContainer/YourGetPermissionContainer';
-
-export default class Buttons extends Component {
+import { withTranslation } from 'react-i18next';
+class Buttons extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +33,7 @@ export default class Buttons extends Component {
     return (
       <View style={{flex: 1}}>
         <Header
-          title="Xin Phép"
+          title={this.props.t('Xin phép')}
           isShowRight
           isShowMenu
           onPressMenu={() => this.props.navigation.openDrawer()}
@@ -138,30 +138,4 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-{
-  /* import React, { Component } from 'react'
-import {View, Text, ImageBackground, Image} from 'react-native';
-import Header from './custom/Header';
-import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
-import Images from '../res/image';
-
-export default class ButtonGetPemissionComponent extends Component {
-    render() {
-        return (
-            <View style={{flex:1}}>
-                <Header title ="Get Permission"/>
-                <ImageBackground
-          source={Images.ic_bg_timecard}
-          style={{height: screenHeight, width: screenWidth, flex: 1}}>
-              
-          </ImageBackground>
-
-                
-
-                
-            </View>
-        )
-    }
-} */
-}
+export default withTranslation()(Buttons);

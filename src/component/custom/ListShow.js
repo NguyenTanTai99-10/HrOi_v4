@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import Sizes from '../../utils/Sizes';
+import { withTranslation } from 'react-i18next';
 
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -16,7 +17,7 @@ if (Platform.OS === 'android') {
   }
 }
 
-export default class ListShow extends Component {
+class ListShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,13 +25,13 @@ export default class ListShow extends Component {
       expande: false,
       dapan: '',
       selectItem:'',
-      titleChoose :'Dạng yêu cầu',
+      titleChoose :this.props.t('Dạng yêu cầu'),
       data: [
         {type: 1, title: 'Yêu cầu chưa thanh toán'},
         {type: 2, title: 'Nghỉ chính thức'},
         {type: 3, title: 'Tăng ca'},
         {type: 4, title: 'Đến trễ'},
-        {type: 5, title: 'Đến Sớm'},
+        {type: 5, title: 'Về sớm'},
       ],
     };
   }
@@ -55,11 +56,11 @@ export default class ListShow extends Component {
           alignItems: 'center',}}
           onPress={()=>{this.setState({selectItem:item}) ; 
           this.setState({updown: !this.state.updown})
-          this.setState({titleChoose:item.title});
+          this.setState({titleChoose:this.props.t(item.title)});
           this.props.onPressChooseType(item.type)
           this.setState({expande: !this.state.expande});
           }}>
-            <Text style={{fontSize: 15}}>{item.title}</Text>
+            <Text style={{fontSize: 15}}>{this.props.t(item.title)}</Text>
             {this.state.selectItem === item ? (
               <Image
                 source={require('../../res/image/img/checked.png')}
@@ -126,3 +127,4 @@ ListShow.defaultProps = {
     // data: [],
     onPressChooseType:()=>{}
   }
+  export default withTranslation()(ListShow);

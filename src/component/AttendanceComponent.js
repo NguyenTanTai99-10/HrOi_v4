@@ -3,56 +3,37 @@ import {Text, View, ImageBackground, FlatList, ScrollView} from 'react-native';
 import Header from './custom/Header';
 import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import Images from '../res/image';
+import { withTranslation } from 'react-i18next';
 
-export default class AttendanceComponent extends Component {
+class AttendanceComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '13/3/2021', time: '8:30/17:30', status: 'Trễ giờ'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Đúng giờ'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
-        {date: '15/3/2021', time: '8:30/17:30', status: 'Đến sớm'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Ontime'},
+        {date: '13/3/2021', time: '8:30/17:30', status: 'Late'},
+        {date: '12/3/2021', time: '8:30/17:30', status: 'Early'},
+        
       ],
     };
   }
   ChooseColor = (item) =>{
+   
+    
     switch(item){
-      case "Đúng giờ" :
+      case "Ontime" :
       return "blue";
       break;
-      case "Trễ giờ" :
+      case "Late" :
       return "red";
       break;
-      case "Đến sớm" :
+      case "Early" :
       return "orange";
       break;
     }
+  
+    
+   
   }
   renderItem = (item, index) => (
     <View
@@ -97,7 +78,7 @@ export default class AttendanceComponent extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <Header title="Điểm danh"
+        <Header title={this.props.t('Điểm danh')}
         isShowMenu
         onPressMenu={() => this.props.navigation.openDrawer()}
         
@@ -123,12 +104,12 @@ export default class AttendanceComponent extends Component {
                   height: 50,
                   borderRadius: 10,
                 }}>
-                <Text style={{marginLeft: 10, color: 'white'}}>Ngày tháng</Text>
+                <Text style={{marginLeft: 10, color: 'white'}}>{this.props.t('Ngày tháng')}</Text>
                 <View>
-                <Text style={{color: 'white' , alignSelf:"center"}}>Thời gian </Text>
+                <Text style={{color: 'white' , alignSelf:"center"}}>{this.props.t('Thời gian')}</Text>
                 <Text style={{color: 'white'}}>Checkin/Checkout </Text>
                   </View>
-                <Text style={{marginRight: 10, color: 'white'}}>Trạng Thái</Text>
+                <Text style={{marginRight: 10, color: 'white'}}>{this.props.t('Trạng thái')}</Text>
               </View>
             </ImageBackground>
             
@@ -148,3 +129,4 @@ export default class AttendanceComponent extends Component {
     );
   }
 }
+export default withTranslation()(AttendanceComponent);

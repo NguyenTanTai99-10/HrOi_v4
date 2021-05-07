@@ -10,6 +10,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
+import { withTranslation } from 'react-i18next';
 
 import Images from '../../res/image';
 import {colors, fonts ,screenWidth,screenHeight} from '../../res/style/theme';
@@ -25,7 +26,7 @@ const listMenu = [
   {title: 'Cài đặt', icon: Images.ic_setting, screen: 'SettingLanguage'},
 ];
 
-export default class DrawerComponent extends Component {
+class DrawerComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +48,7 @@ export default class DrawerComponent extends Component {
       }}>
       <View style={styles.itemMenu}>
         <Image style={styles.icon} source={item.icon} />
-        <Text style={styles.txtMenu}>{item.title}</Text>
+        <Text style={styles.txtMenu}>{this.props.t(item.title)}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -79,7 +80,7 @@ export default class DrawerComponent extends Component {
                 style={styles.itemMenu}
                 onPress={() => this.props.navigation.replace('Login')}>
                 <Image style={styles.icon} source={Images.ic_exit} />
-                <Text style={styles.txtMenu}>Đăng xuất</Text>
+                <Text style={styles.txtMenu}>{this.props.t('Đăng xuất')}</Text>
               </TouchableOpacity>
             }
           />
@@ -89,6 +90,7 @@ export default class DrawerComponent extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   itemMenu: {
     flexDirection: 'row',
@@ -109,15 +111,5 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 });
-// import React, { Component } from 'react'
-// import { Text, View } from 'react-native'
+export default withTranslation()(DrawerComponent);
 
-// export default class DrawerComponent extends Component {
-//    render() {
-//       return (
-//          <View>
-//             <Text> textInComponent </Text>
-//          </View>
-//       )
-//    }
-// }

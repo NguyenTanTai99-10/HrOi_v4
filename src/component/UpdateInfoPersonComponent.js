@@ -25,8 +25,9 @@ import Header from './custom/Header';
 
 import BottomSheetPhoto from './custom/BottomSheetPhoto';
 import ImagePicker from 'react-native-image-crop-picker';
+import { withTranslation } from 'react-i18next';
 
-export default class UpdateInfoPersonComponent extends Component {
+class UpdateInfoPersonComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,7 +82,7 @@ export default class UpdateInfoPersonComponent extends Component {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title="Sửa thông tin cá nhân"
+          title={this.props.t("Sửa thông tin cá nhân")}
         />
         {/* http://45.119.213.225/timecard/storage/2020/08/avatar_1598275999.jpeg */}
 
@@ -140,7 +141,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderRadius: 20,
                 height:50
               }}>
-              <Text style={{paddingHorizontal: 10}}>Họ và tên :</Text>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Họ và tên')} :</Text>
               <TextInput
                 onChangeText={(text) => {
                   this.setState({name: text});
@@ -159,7 +160,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderRadius: 20,
                 height:50
               }}>
-              <Text style={{paddingHorizontal: 10}}>Ngày sinh :</Text>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Ngày sinh')} :</Text>
               <TextInput
                 value={this.state.birthday}
                 style={{width: screenWidth * 0.6}}></TextInput>
@@ -175,7 +176,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderRadius: 20,
                 height:50
               }}>
-              <Text style={{paddingHorizontal: 10}}>Gmail :</Text>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Gmail')} :</Text>
               <TextInput
                 value={this.state.gmai}
                 style={{width: screenWidth * 0.6}}></TextInput>
@@ -191,7 +192,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderRadius: 20,
                 height:50
               }}>
-              <Text style={{paddingHorizontal: 10}}>Số điện thoại :</Text>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Số điện thoại')} :</Text>
               <TextInput
                 value={this.state.phone}
                 style={{width: screenWidth * 0.6}}></TextInput>
@@ -207,7 +208,7 @@ export default class UpdateInfoPersonComponent extends Component {
                 borderRadius: 20,
                 height:50
               }}>
-              <Text style={{paddingHorizontal: 10}}>Nghề nghiệp :</Text>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Nghề nghiệp')} :</Text>
               <TextInput
                 value={this.state.position}
                 style={{width: screenWidth * 0.6}}></TextInput>
@@ -223,7 +224,7 @@ export default class UpdateInfoPersonComponent extends Component {
                   height: 50,
                   borderRadius: 8,
                 }}>
-                <Text style={{color: 'white', fontWeight: 'bold'}}>XÁC NHẬN</Text>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>{this.props.t('XÁC NHẬN')}</Text>
               </TouchableOpacity>
             </View>
             <BottomSheetPhoto
@@ -240,3 +241,4 @@ export default class UpdateInfoPersonComponent extends Component {
     );
   }
 }
+export default withTranslation()(UpdateInfoPersonComponent);

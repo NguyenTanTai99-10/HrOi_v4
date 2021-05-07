@@ -17,10 +17,11 @@ import Header from './custom/Header';
 
 
 import TextInputAnimated from './custom/TextInputAnimated';
+import { withTranslation } from 'react-i18next';
 
 // import TextInputAnimated from './custom/TextInputAnimated';
 
-export default class ForgetPassWordComponent extends Component {
+class ForgetPassWordComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +46,7 @@ export default class ForgetPassWordComponent extends Component {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title="Forgot Password"
+          title= {this.props.t('Quên mật khẩu')}
         />
         <TouchableNativeFeedback onPress={Keyboard.dismiss}>
         <ImageBackground
@@ -88,7 +89,8 @@ export default class ForgetPassWordComponent extends Component {
                   alignItems: 'center',
                 }}>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>
-                  XÁC NHẬN
+                {this.props.t('XÁC NHẬN')}
+                  
                 </Text>
               </TouchableOpacity>
             </View>
@@ -99,3 +101,4 @@ export default class ForgetPassWordComponent extends Component {
     );
   }
 }
+export default withTranslation()(ForgetPassWordComponent);

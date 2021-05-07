@@ -15,6 +15,7 @@ import {
 import Header from './custom/Header';
 import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import Images from '../res/image';
+import { withTranslation } from 'react-i18next';
 
 import TextInputAnimated from './custom/TextInputAnimated';
 import DateSelector from './custom/DateSelector';
@@ -23,7 +24,7 @@ import BottomSheet from './custom/BottomSheet';
 import Sizes from '../utils/Sizes';
 import {DatetimePicker} from './custom/DatetimePicker';
 
-export default class AddRequiesComponent extends Component {
+class AddRequiesComponent extends Component {
   constructor(props) {
     super(props);
     let controller;
@@ -34,8 +35,8 @@ export default class AddRequiesComponent extends Component {
       disabled: false,
       ListDate: '',
       typeChoose: '',
-      typeChooseTime: 'Chọn thời gian',
-      typeChooseSession: 'Chọn buổi',
+      typeChooseTime: this.props.t('Chọn thời gian'),
+      typeChooseSession: this.props.t('Chọn buổi'),
       Showdate : '',
 
       dataTime: [
@@ -89,7 +90,7 @@ export default class AddRequiesComponent extends Component {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title="Thêm yêu cầu"
+          title={this.props.t('Thêm yêu cầu')}
         />
         <TouchableWithoutFeedback
           onPress={() => {
@@ -101,7 +102,7 @@ export default class AddRequiesComponent extends Component {
           <ImageBackground
             source={Images.ic_bg_timecard}
             style={{width: screenWidth, height: screenHeight, flex: 1}}>
-            <ScrollView contentContainerStyle={{flexGrow: 1}}>
+            <ScrollView contentContainerStyle={{flexGrow: 1} }nestedScrollEnabled>
               <View
                 style={{
                   marginHorizontal: 20,
@@ -109,7 +110,7 @@ export default class AddRequiesComponent extends Component {
                   // marginVertical: 20,
                 }}>
                 <Text style={{fontSize: 15, fontWeight: '700'}}>
-                  Dạng yêu cầu *{' '}
+                {this.props.t('Yêu cầu')} *{' '}
                 </Text>
                 <View
                   style={[
@@ -205,7 +206,7 @@ export default class AddRequiesComponent extends Component {
                         fontSize: 16,
                         marginTop: 10,
                       }}>
-                      {'Số ngày : ' +
+                      {`${this.props.t('Số ngày')} : ` +
                         ((this.state.ListDate.length + '').length < 2
                           ? '0' + this.state.ListDate.length
                           : this.state.ListDate.length)}
@@ -310,7 +311,7 @@ export default class AddRequiesComponent extends Component {
                       marginTop: 10,
                       marginLeft: 20,
                     }}>
-                    Thời gian *
+                    {this.props.t('Thời gian')} *
                   </Text>
                   <View
                     style={{
@@ -321,7 +322,7 @@ export default class AddRequiesComponent extends Component {
                     <TextInputAnimated
                       //  isPassword
                       //  style={{height:50}}
-                      label="Thời gian (giờ,phút)"
+                      label={this.props.t('Thời gian (giờ,phút)')}
                       value={this.state.DateStart}
                       onChangeText={this.onChangeDateStart}
                       onPressClear={this.onClearDateStart}
@@ -338,7 +339,7 @@ export default class AddRequiesComponent extends Component {
                   marginTop: 10,
                   marginLeft: 20,
                 }}>
-                Ghi chú *
+                {this.props.t('Ghi chú')} *
               </Text>
               <View
                 style={{
@@ -375,7 +376,7 @@ export default class AddRequiesComponent extends Component {
                     borderRadius: 10,
                   }}>
                   <Text style={{color: 'white', fontWeight: '700'}}>
-                    XÁC NHẬN
+                    {this.props.t('XÁC NHẬN')}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -386,3 +387,4 @@ export default class AddRequiesComponent extends Component {
     );
   }
 }
+export default withTranslation()(AddRequiesComponent);

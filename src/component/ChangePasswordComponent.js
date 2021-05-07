@@ -4,11 +4,12 @@ import Header from './custom/Header';
 import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import Images from '../res/image';
 import TextInputAnimated from './custom/TextInputAnimated';
+import { withTranslation } from 'react-i18next';
 
 
 
 
-export default class ChangePasswordComponent extends Component {
+class ChangePasswordComponent extends Component {
   constructor(props) {
     super(props);
     this.state ={
@@ -47,7 +48,7 @@ onClearPassword= () => {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title="Thay đổi mật khẩu"
+          title={this.props.t('Thay đổi mật khẩu')}
         />
         <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}
@@ -60,7 +61,7 @@ onClearPassword= () => {
         <View style={{marginHorizontal: 40, marginVertical: 30}}>
           <View >
             <View style={{  justifyContent :'center' , alignItems:'center'}}>
-               <Text style={{fontWeight: 'bold',width:'90%'}}>Mật khẩu hiện tại</Text>
+               <Text style={{fontWeight: 'bold',width:'90%'}}>{this.props.t('Mật khẩu hiện tại')}</Text>
             </View>
            
            
@@ -69,7 +70,7 @@ onClearPassword= () => {
                 
                 //  isPassword
                 //  style={{height:50}}
-                 label="Mật khẩu hiện tại"
+                 label={this.props.t('Mật khẩu hiện tại')}
                  value={this.state.PasswordOld}
                  onChangeText={this.onChangePasswordOld}
                  onPressClear={this.onClearPasswordOld}
@@ -79,7 +80,7 @@ onClearPassword= () => {
 
           <View style={{marginTop: 20}}>
           <View style={{  justifyContent :'center' , alignItems:'center'}}>
-               <Text style={{fontWeight: 'bold',width:'90%'}}>Mật khẩu mới</Text>
+               <Text style={{fontWeight: 'bold',width:'90%'}}>{this.props.t('Mật khẩu mới')}</Text>
             </View>
             
            
@@ -88,7 +89,7 @@ onClearPassword= () => {
                 
                 //  isPassword
                 //  style={{height:50}}
-                 label="Mật khẩu mới"
+                 label={this.props.t('Mật khẩu mới')}
                  value={this.state.Password}
                  onChangeText={this.onChangePassword}
                  onPressClear={this.onClearPassword}
@@ -96,7 +97,7 @@ onClearPassword= () => {
           </View>
           <View style={{marginTop: 20}}>
           <View style={{  justifyContent :'center' , alignItems:'center'}}>
-               <Text style={{fontWeight: 'bold',width:'90%'}}>Nhập lại mật khẩu mới</Text>
+               <Text style={{fontWeight: 'bold',width:'90%'}}>{this.props.t('Nhập lại mật khẩu')}</Text>
             </View>
             
             
@@ -105,7 +106,7 @@ onClearPassword= () => {
                 
                 //  isPassword
                 //  style={{height:50}}
-                 label="Nhập lại mật khẩu mới"
+                 label={this.props.t('Nhập lại mật khẩu')}
                  value={this.state.Passwordcomfirm}
                  onChangeText={this.onChangePasswordcomfirm}
                  onPressClear={this.onClearPasswordcomfirm}
@@ -122,7 +123,7 @@ onClearPassword= () => {
                   alignItems: 'center',
                 }}>
                 <Text style={{color: 'white', fontWeight: 'bold'}}>
-                  XÁC NHẬN
+                {this.props.t('XÁC NHẬN')}
                 </Text>
               </TouchableOpacity>
 
@@ -134,3 +135,4 @@ onClearPassword= () => {
     );
   }
 }
+export default withTranslation()(ChangePasswordComponent);

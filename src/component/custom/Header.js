@@ -9,6 +9,7 @@ import {
   Platform,
   
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
 import Images from '../../res/image';
 import {colors, screenWidth, screenHeight} from '../../res/style/theme';
@@ -16,6 +17,7 @@ import Sizes from '../../utils/Sizes';
 import StatusBarView from './StatusBarView';
 
 const Header = props => {
+  const { t, i18n } = useTranslation();
   // console.log('props===',props);
   const iconBack = () => (
     <TouchableOpacity
@@ -89,7 +91,7 @@ const Header = props => {
         alignItems: 'center',}}
       onPress={() => props.onPressNavigate()}>
       <Text  style={{color:'white', fontSize:17 ,fontWeight: '700',}} >
-        Sửa
+        {t('Sửa')}
       </Text>
     </TouchableOpacity>
   );

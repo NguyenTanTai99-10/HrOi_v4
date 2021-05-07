@@ -24,8 +24,9 @@ import {
 } from 'react-native-responsive-screen';
 import Header from '../custom/Header';
 import {notification} from '../Notification/NotificationIOS';
+import { withTranslation } from 'react-i18next';
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -113,7 +114,7 @@ export default class Home extends Component {
         <Header
           isShowMenu
           onPressMenu={() => this.props.navigation.openDrawer()}
-          title="Trang Chủ"
+          title={this.props.t('Trang chủ')}
         />
         
         <ImageBackground
@@ -196,8 +197,9 @@ export default class Home extends Component {
                   style={{height: 50, width: 50}}
                   resizeMode="contain"></Image>
                 <Text
-                  style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
-                  Xin đi trễ
+                numberOfLines={1}
+                  style={{color: 'white', fontWeight: 'bold', fontSize: 20  ,width:'50%'}}>
+                  {this.props.t('Xin đi trễ')}
                 </Text>
               </ImageBackground>
             </TouchableOpacity>
@@ -283,7 +285,7 @@ export default class Home extends Component {
                   source={Images.ic_error_data}
                   style={{height: 30, width: 30}}
                   resizeMode="contain"></Image>
-                <Text style={{marginLeft: 10}}>Bạn chưa Check In</Text>
+                <Text style={{marginLeft: 10}}>{this.props.t('Bạn chưa checkin')}</Text>
               </View>
             ) : (
               <View
@@ -297,7 +299,7 @@ export default class Home extends Component {
                   style={{height: 30, width: 30}}
                   resizeMode="contain"></Image>
                 <Text style={{marginLeft: 10}}>
-                  Check In thành công {this.state.timeIn}
+                {this.props.t('Thành công checkin')} {this.state.timeIn}
                 </Text>
               </View>
             )}
@@ -313,7 +315,7 @@ export default class Home extends Component {
                   source={Images.ic_error_data}
                   style={{height: 30, width: 30}}
                   resizeMode="contain"></Image>
-                <Text style={{marginLeft: 10}}>Bạn chưa Check Out</Text>
+                <Text style={{marginLeft: 10}}>{this.props.t('Bạn chưa checkout')}</Text>
               </View>
             ) : (
               <View
@@ -327,7 +329,7 @@ export default class Home extends Component {
                   style={{height: 30, width: 30}}
                   resizeMode="contain"></Image>
                 <Text style={{marginLeft: 10}}>
-                  Check Out thành công {this.state.timeOut}
+                {this.props.t('Thành công checkout')} {this.state.timeOut}
                 </Text>
               </View>
             )}
@@ -359,3 +361,4 @@ export default class Home extends Component {
     );
   }
 }
+export default withTranslation()(Home);

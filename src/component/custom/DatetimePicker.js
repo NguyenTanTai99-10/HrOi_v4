@@ -11,8 +11,10 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import Sizes from '../../utils/Sizes';
 import {colors, screenWidth, screenHeight} from '../../res/style/theme';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 export const DatetimePicker = (props) => {
+  const { t, i18n } = useTranslation();
   
   useEffect(() => {
   console.log('====================================');
@@ -30,7 +32,7 @@ export const DatetimePicker = (props) => {
   const [date, setDate] = useState(new Date());
   const [minDate, setMinDate] = useState(new Date());
 
-  const [DateStart, setDateStart] = useState('Ngày bắt đầu');
+  const [DateStart, setDateStart] = useState(t('Ngày bắt đầu'));
 
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -55,7 +57,7 @@ export const DatetimePicker = (props) => {
 
   //================================================================
   const [date1, setDate1] = useState(new Date());
-  const [DateEnd, setDateEnd] = useState('Ngày kết thúc');
+  const [DateEnd, setDateEnd] = useState(t('Ngày kết thúc'));
 
   const [mode1, setMode1] = useState('date');
   const [show1, setShow1] = useState(false);
@@ -79,7 +81,7 @@ export const DatetimePicker = (props) => {
 
   //==========================================================================
   const [date2, setDate2] = useState(new Date());
-  const [TimeStart, seTimeStart] = useState('Thời gian bắt đầu');
+  const [TimeStart, seTimeStart] = useState(t('Thời gian bắt đầu'));
   const [mode2, setMode2] = useState('date');
   const [show2, setShow2] = useState(false);
 
@@ -110,7 +112,7 @@ export const DatetimePicker = (props) => {
   //================================================================
   //   //==========================================================================
   const [date3, setDate3] = useState(new Date());
-  const [TimeEnd, seTimeEnd] = useState('Thời gian kết thúc');
+  const [TimeEnd, seTimeEnd] = useState(t('Thời gian kết thúc'));
   const [mode3, setMode3] = useState('date');
   const [show3, setShow3] = useState(false);
 
@@ -155,7 +157,7 @@ export const DatetimePicker = (props) => {
           justifyContent: 'space-between',
         }}>
         <View style={{}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>Chọn Ngày Bắt Đầu * </Text>
+          <Text style={{fontSize: 15, fontWeight: '700'}}>{t('Chọn ngày bắt đầu')}* </Text>
           <TouchableOpacity
             style={{
               width: (screenWidth * 0.8) / 2,
@@ -185,7 +187,7 @@ export const DatetimePicker = (props) => {
           </TouchableOpacity>
         </View>
         <View style={{marginHorizontal:10,}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>Chọn Thời Gian Bắt Đầu * </Text>
+          <Text style={{fontSize: 15, fontWeight: '700'}}>{t('Chọn thời gian bắt đầu')}* </Text>
           <TouchableOpacity
             style={{
               width: (screenWidth *0.8 ) / 2,
@@ -245,7 +247,7 @@ export const DatetimePicker = (props) => {
           justifyContent: 'space-between',
         }}>
         <View style={{}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>Chọn Ngày Kết Thúc * </Text>
+          <Text style={{fontSize: 15, fontWeight: '700'}}>{t('Chọn ngày kết thúc')}* </Text>
           <TouchableOpacity
             style={{
               width: (screenWidth * 0.8) / 2,
@@ -276,7 +278,7 @@ export const DatetimePicker = (props) => {
         </View>
         <View style={{marginHorizontal:10,}}>
           <Text style={{fontSize: 15, fontWeight: '700'}}>
-            Chọn Thời Gian Kết Thúc *{' '}
+          {t('Chọn thời gian kết thúc')} *{' '}
           </Text>
           <TouchableOpacity
             style={{

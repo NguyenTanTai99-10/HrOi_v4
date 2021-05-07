@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withTranslation } from 'react-i18next';
 import {FlatList, Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 // import {Avatar} from 'react-native-elements';
 import  Icon  from 'react-native-vector-icons/FontAwesome5';
@@ -8,7 +9,8 @@ import Images from '../res/image';
 import {colors, fonts, screenWidth,screenHeight} from '../res/style/theme';
 import Header from './custom/Header';
 
-export default class UserInfo extends Component {
+
+class UserInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +51,7 @@ export default class UserInfo extends Component {
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
           onPressNavigate={()=>this.props.navigation.navigate('UpdateInfoPersonContainer')}
-          title="Thông tin cá nhân"
+          title={this.props.t('Thông tin cá nhân')}
         />
         <ImageBackground
           source={Images.ic_bg_timecard}
@@ -69,7 +71,7 @@ export default class UserInfo extends Component {
               
               style={{width:35 , height:35 , color:'#bb64a1'}}
               />
-              <Text style={[styles.text,{marginLeft:10}]}>Họ và tên</Text>
+              <Text style={[styles.text,{marginLeft:10}]}>{this.props.t('Họ và tên')}</Text>
             </View>
             
             <Text style={styles.text}>{this.state.name}</Text>
@@ -82,7 +84,7 @@ export default class UserInfo extends Component {
               
               style={{width:35 , height:35 , color:'#bb64a1'}}
               />
-              <Text style={[styles.text,{marginLeft:10}]}>Ngày sinh</Text>
+              <Text style={[styles.text,{marginLeft:10}]}>{this.props.t('Ngày sinh')}</Text>
             </View>
             <Text style={styles.text}>{this.state.birthDay}</Text>
           </View>
@@ -94,7 +96,7 @@ export default class UserInfo extends Component {
               
               style={{width:35 , height:35 , color:'#bb64a1'}}
               />
-              <Text style={[styles.text,{marginLeft:10}]}>Gmail</Text>
+              <Text style={[styles.text,{marginLeft:10}]}>{this.props.t('Gmail')}</Text>
             </View>
             <Text style={styles.text}>{this.state.email}</Text>
           </View>
@@ -106,7 +108,7 @@ export default class UserInfo extends Component {
               
               style={{width:35 , height:35 , color:'#bb64a1'}}
               />
-              <Text style={[styles.text,{marginLeft:10}]}>Số điện thoại</Text>
+              <Text style={[styles.text,{marginLeft:10}]}>{this.props.t('Số điện thoại')}</Text>
             </View>
             <Text style={styles.text}>{this.state.phone}</Text>
           </View>
@@ -118,7 +120,7 @@ export default class UserInfo extends Component {
               
               style={{width:35 , height:35 , color:'#bb64a1'}}
               />
-              <Text style={[styles.text,{marginLeft:10}]}>Nghề nghiệp</Text>
+              <Text style={[styles.text,{marginLeft:10}]}>{this.props.t('Nghề nghiệp')}</Text>
             </View>
             <Text style={styles.text}>{this.state.position}</Text>
           </View>
@@ -152,3 +154,4 @@ const styles = StyleSheet.create({
     top: 10,
   },
 });
+export default withTranslation()(UserInfo);

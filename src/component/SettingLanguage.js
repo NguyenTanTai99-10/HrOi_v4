@@ -19,7 +19,7 @@ import { withTranslation } from 'react-i18next';
             typeChooseSession:'',
             dataLang :[
                 {title:'Tiếng Việt'},
-                {title:'Tiếng Nhật'}
+                {title:'English'}
             ]
             
 
@@ -30,7 +30,14 @@ import { withTranslation } from 'react-i18next';
     
     onPressTypeChooseSession = (title) => {
         console.log('title==', title);
-        this.props.i18n.changeLanguage(this.props.i18n.language === 'Tiếng Việt' ? 'vn' : 'ja')
+        if (title==='Tiếng Việt'){
+            this.props.i18n.changeLanguage('vn')
+        }
+        else{
+            this.props.i18n.changeLanguage('en')
+
+        }
+        
       };
     render() {
         return (
@@ -44,26 +51,32 @@ import { withTranslation } from 'react-i18next';
           source={Images.ic_bg_timecard}
           style={{height: screenHeight, width: screenWidth, flex: 1}}>
               <View style={{marginHorizontal: 15, marginVertical: 15, flex: 1}}>
-                  <Text>
-                      ChangeLanguage *
+                  <TouchableOpacity onPress={() => this.modal.current.open()}
+                  style={{backgroundColor:'#FFFFFF' , paddingVertical: 15,paddingHorizontal:5}}>
+                      <Text style={{color:'#4D89FF'}}>
+                      {this.props.t('Ngôn ngữ')} *
                   </Text>
-                  <TouchableOpacity
-                  onPress={() => this.modal.current.open()}
+                  <View
+                  style={{marginTop:10}}
+                  
                   >
                       <Text>
-                          nhan
+                      {this.props.t('Thay đổi ngôn ngữ')}
                       </Text>
 
-                  </TouchableOpacity>
+                  </View>
                   <BottomSheet
                       ref={this.modal}
-                      title="ChooseSession"
+                      title="Choose language"
                       data={this.state.dataLang}
                       modalHeight={150}
                       onPressSession={(title) => {
                         this.onPressTypeChooseSession(title);
                       }}
                     />
+                      </TouchableOpacity>
+
+                  
                   
               </View>
           </ImageBackground>

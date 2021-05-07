@@ -11,8 +11,9 @@ import Header from './custom/Header';
 import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import Images from '../res/image';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { withTranslation } from 'react-i18next';
 
-export default class YourGetPermissionComponent extends Component {
+class YourGetPermissionComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,27 +58,27 @@ export default class YourGetPermissionComponent extends Component {
     };
   }
   chooseImage = item => {
-    switch (item.status) {
-      case 'Đồng ý':
+    switch (this.props.t(item.status)) {
+      case this.props.t('Đồng ý'):
         return Images.icon_approved;
         break;
-      case 'Chờ đợi':
+      case this.props.t('Chờ đợi'):
         return Images.icon_waiting;
         break;
-      case 'Từ chối':
+      case this.props.t('Từ chối'):
         return Images.icon_decline;
         break;
     }
   };
   chooseColor = item => {
-    switch (item.status) {
-      case 'Đồng ý':
+    switch (this.props.t(item.status)) {
+      case this.props.t('Đồng ý'):
         return '#4DD077';
         break;
-      case 'Chờ đợi':
+      case this.props.t('Chờ đợi'):
         return '#FFC069';
         break;
-      case 'Từ chối':
+      case this.props.t('Từ chối'):
         return 'red';
         break;
     }
@@ -115,11 +116,13 @@ export default class YourGetPermissionComponent extends Component {
                 {marginLeft: 5, fontSize: 15},
                 {color: this.chooseColor(item.item)},
               ]}>
-              {item.item.status}
+                {/* this.props.t(item.item.status) */}
+              {this.props.t(item.item.status)}
             </Text>
           </View>
         </View>
-        <Text style={{marginTop: 10, fontSize: 22}}>{item.item.require}</Text>
+        <Text style={{marginTop: 10, fontSize: 22}}>
+        {this.props.t(item.item.require)}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -128,7 +131,7 @@ export default class YourGetPermissionComponent extends Component {
             alignItems: 'flex-start',
           }}>
           <Icon name="clock" size={20} style={{color: 'gray'}} />
-          <Text style={{marginLeft: 5, color: 'gray'}}>Thời gian đăng ký:</Text>
+          <Text style={{marginLeft: 5, color: 'gray'}}>{this.props.t('Thời gian đăng ký')} :</Text>
           <Text style={{marginLeft: 5, color: 'gray', flex: 1}}>
             {item.item.timeapply}
           </Text>
@@ -141,7 +144,7 @@ export default class YourGetPermissionComponent extends Component {
             alignItems: 'flex-start',
           }}>
           <Icon name="clock" size={20} style={{color: 'gray'}} />
-          <Text style={{marginLeft: 5, color: 'gray'}}>Thời gian yêu cầu :</Text>
+          <Text style={{marginLeft: 5, color: 'gray'}}>{this.props.t('Thời gian yêu cầu')} :</Text>
           <Text style={{marginLeft: 5, color: 'gray', flex: 1}}>
             {item.item.timerequest}
           </Text>
@@ -153,6 +156,7 @@ export default class YourGetPermissionComponent extends Component {
   render() {
     return (
       <FlatList
+      nestedScrollEnabled
         contentContainerStyle={{flexGrow: 1,}}
         keyExtractor={(item, index) => String(index)}
         data={this.state.data}
@@ -161,3 +165,4 @@ export default class YourGetPermissionComponent extends Component {
     );
   }
 }
+export default withTranslation()(YourGetPermissionComponent);

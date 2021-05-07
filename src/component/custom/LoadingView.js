@@ -13,6 +13,7 @@ const LoadingView = props => {
           alignItems: 'center',
           zIndex: 1,
         }}>
+          <ActivityIndicator size="large" color="#0000ff" />
         
         
       </View>

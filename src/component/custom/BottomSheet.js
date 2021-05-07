@@ -48,6 +48,7 @@ const BottomSheet = forwardRef((props, ref) => {
        setSelectItem(item);  
        props.onPressTime(item.title);
        props.onPressSession(item.title);
+       setShow(false)
        
       }} 
       style={{
@@ -59,6 +60,7 @@ const BottomSheet = forwardRef((props, ref) => {
     </TouchableOpacity>
   )
   useEffect(() => {
+    console.log('show===' , show);
     show ? slideUp() : onHide()
   }, [show])
 

@@ -7,6 +7,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { colors } from './src/res/style/theme';
+import { useTranslation } from 'react-i18next';
 
 ////////////////////////////////////////////////////////////
 import LoginContainer from './src/container/login/LoginContainer';
@@ -34,9 +35,9 @@ import ButtonGetPemissionComponent from './src/component/ButtonGetPemissionCompo
 import CheckGetPemissionContainer from './src/container/GetPermissionContainer/CheckGetPemissionContainer';
 import AddRequiesComponent from './src/component/AddRequiesComponent';
 import UpdateInfoPersonContainer from './src/container/UpdateInfoPersonContainer/UpdateInfoPersonContainer';
-import Test from './src/component/Test';
+
 import i18n from './src/Language/LanguageContext';
-import Test2 from './src/component/Test2';
+
 import SettingLanguage from './src/component/SettingLanguage';
 
 
@@ -56,6 +57,9 @@ import SettingLanguage from './src/component/SettingLanguage';
 //bottom-tab
 const Tab = createMaterialBottomTabNavigator();
 const bottomTab = () => {
+   const { t, i18n } = useTranslation();
+   
+
    //hospital-user
    //CompanyMemberContainer
    return (
@@ -70,7 +74,7 @@ const bottomTab = () => {
             name="Home"
             component={HomeContainer}
             options={{
-               tabBarLabel: 'Trang chủ',
+               tabBarLabel : `${t('Trang chủ')}`,
                tabBarIcon: ({ color }) => <Icon name="home" color={color} size={25} />,
             }}
          />
@@ -78,7 +82,7 @@ const bottomTab = () => {
             name="AttendanceContainer"
             component={AttendanceContainer}
             options={{
-               tabBarLabel: 'Điểm danh',
+               tabBarLabel: `${t('Điểm danh')}`,
                tabBarIcon: ({ color }) => <Icon name="chart-bar" color={color} size={25} />,
             }}
          />
@@ -86,7 +90,7 @@ const bottomTab = () => {
             name="CompanyMemberContainer"
             component={CompanyMemberContainer}
             options={{
-               tabBarLabel: 'Thành viên',
+               tabBarLabel: `${t('Thành viên')}`,
                tabBarIcon: ({ color }) => <Icon name="hospital-user" color={color} size={25} />,
             }}
          />
@@ -94,7 +98,7 @@ const bottomTab = () => {
             name="ButtonGetPemissionComponent"
             component={ButtonGetPemissionComponent}
             options={{
-               tabBarLabel: 'Xin phép',
+               tabBarLabel: `${t('Xin phép')}`,
                tabBarIcon: ({ color }) => <Icon name="clipboard-list" color={color} size={25} />,
             }}
          />
@@ -135,6 +139,7 @@ const App = () => {
             <Stack.Screen name="CheckGetPemissionContainer" component={CheckGetPemissionContainer} />
             <Stack.Screen name="AddRequiesComponent" component={AddRequiesComponent} />
             <Stack.Screen name="UpdateInfoPersonContainer" component={UpdateInfoPersonContainer} />
+            <Stack.Screen name="SettingLanguage" component={SettingLanguage} />
             {/* UpdateInfoPersonContainer */}
             {/* ButtonGetPemission */}
             {/* CompanyMemberComponent */}
@@ -147,12 +152,8 @@ const App = () => {
             {/* InfoMemberComponent */}
             {/* CheckGetPemissionContainer */}
             {/* AddRequiesComponent */}
-            <Stack.Screen name="Test" component={Test} />
-            <Stack.Screen name="Test2" component={Test2} />
-            <Stack.Screen name="SettingLanguage" component={SettingLanguage} />
             {/* SettingLanguage */}
-            {/* Test */}
-            {/* Test2 */}
+            
             
             
          </Stack.Navigator>

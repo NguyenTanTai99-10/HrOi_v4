@@ -15,10 +15,11 @@ import Images from '../res/image';
 import Header from './custom/Header';
 import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import LoadingView from './custom/LoadingView';
+import { withTranslation } from 'react-i18next';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default class CompanyMemberComponent extends Component {
+class CompanyMemberComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -192,7 +193,7 @@ export default class CompanyMemberComponent extends Component {
     return (
       <View style={{flex: 1}}>
         <Header
-          title="Thành Viên"
+          title={this.props.t('Thành viên')}
           isShowImage
           image={this.state.imageAvt}
           // onPressImage={()=>this.props.navigation.navigate('InfoPerson')}
@@ -245,7 +246,7 @@ export default class CompanyMemberComponent extends Component {
                   
                   height: 40,
                 }}
-                placeholder="Search name..."></TextInput>
+                placeholder={this.props.t('Tìm kiếm tên ...')}></TextInput>
             </View>
             
           </View>
@@ -267,3 +268,4 @@ export default class CompanyMemberComponent extends Component {
     );
   }
 }
+export default withTranslation()(CompanyMemberComponent);
