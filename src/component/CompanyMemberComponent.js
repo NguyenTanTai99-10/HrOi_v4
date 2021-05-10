@@ -131,6 +131,8 @@ class CompanyMemberComponent extends Component {
         // borderWidth: 1,q
         backgroundColor: 'white',
         borderRadius: 10,
+        borderColor:'#bb64a1',
+        borderWidth:1
       }}>
       <View
         style={{
@@ -138,7 +140,7 @@ class CompanyMemberComponent extends Component {
           alignItems: 'center',
           marginVertical: 10,
         }}>
-        <View style={{borderRadius: 50, borderColor: 'pink', borderWidth: 2}}>
+        <View style={{borderRadius: 50, borderColor: '#91D5FF', borderWidth: 2}}>
           <Image
             source={{
               uri: `${item.item.avatar}`,

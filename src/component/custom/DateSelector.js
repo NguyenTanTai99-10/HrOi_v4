@@ -74,7 +74,7 @@ const DateSelector  = ({ style, calendarStyle, getAll, oldTime }) => {
         setYearNow(yearNow + 1)
     }
     const yearDown = () => {
-        setYearNow(yearNow === 2019 ? yearNow : yearNow - 1)
+        setYearNow(yearNow === 2020 ? yearNow : yearNow - 1)
     }
     return (
         <View style={[{

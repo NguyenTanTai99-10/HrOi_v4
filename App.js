@@ -35,10 +35,10 @@ import ButtonGetPemissionComponent from './src/component/ButtonGetPemissionCompo
 import CheckGetPemissionContainer from './src/container/GetPermissionContainer/CheckGetPemissionContainer';
 import AddRequiesComponent from './src/component/AddRequiesComponent';
 import UpdateInfoPersonContainer from './src/container/UpdateInfoPersonContainer/UpdateInfoPersonContainer';
-
 import i18n from './src/Language/LanguageContext';
-
 import SettingLanguage from './src/component/SettingLanguage';
+import DatetimePickerRequiest from './src/component/custom/DatetimePickerRequiest';
+
 
 
 
@@ -140,6 +140,8 @@ const App = () => {
             <Stack.Screen name="AddRequiesComponent" component={AddRequiesComponent} />
             <Stack.Screen name="UpdateInfoPersonContainer" component={UpdateInfoPersonContainer} />
             <Stack.Screen name="SettingLanguage" component={SettingLanguage} />
+            <Stack.Screen name="DatetimePickerRequiest" component={DatetimePickerRequiest} />
+            {/* DatetimePickerRequiest */}
             {/* UpdateInfoPersonContainer */}
             {/* ButtonGetPemission */}
             {/* CompanyMemberComponent */}

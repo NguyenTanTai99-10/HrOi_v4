@@ -179,7 +179,7 @@ class Home extends Component {
             }}>
             <TouchableOpacity
             onPress={()=>{
-              this.props.navigation.navigate('Test')
+              this.props.navigation.navigate('RequireLateContainer')
             }}
             >
               <ImageBackground

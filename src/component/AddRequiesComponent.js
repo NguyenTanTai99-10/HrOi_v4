@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'react-native';
 import Header from './custom/Header';
-import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
+import { colors, fonts, screenWidth, screenHeight } from '../res/style/theme';
 import Images from '../res/image';
 import { withTranslation } from 'react-i18next';
 
@@ -22,7 +22,12 @@ import DateSelector from './custom/DateSelector';
 import ListShow from './custom/ListShow';
 import BottomSheet from './custom/BottomSheet';
 import Sizes from '../utils/Sizes';
-import {DatetimePicker} from './custom/DatetimePicker';
+import { DatetimePicker } from './custom/DatetimePicker';
+import UnpaidRequiest from './UnpaidRequiest';
+import OfficialLeave from './OfficialLeave';
+import Late from './Late';
+import Soon from './Soon';
+UnpaidRequiest
 
 class AddRequiesComponent extends Component {
   constructor(props) {
@@ -37,15 +42,15 @@ class AddRequiesComponent extends Component {
       typeChoose: '',
       typeChooseTime: this.props.t('Chọn thời gian'),
       typeChooseSession: this.props.t('Chọn buổi'),
-      Showdate : '',
+      Showdate: '',
 
       dataTime: [
-        {title: 'Một ngày', value: 'asda123sdasd'},
-        {title: 'Nữa ngày', value: 'asda123123sdasd'},
+        { title: 'Một ngày', value: 'asda123sdasd' },
+        { title: 'Nữa ngày', value: 'asda123123sdasd' },
       ],
       dataSession: [
-        {title: 'Sáng', value: 'asda123sdasd'},
-        {title: 'Chiều', value: 'asda123123sdasd'},
+        { title: 'Sáng', value: 'asda123sdasd' },
+        { title: 'Chiều', value: 'asda123123sdasd' },
       ],
     };
     this.modal1 = React.createRef();
@@ -53,40 +58,59 @@ class AddRequiesComponent extends Component {
   }
 
   onChangeDateStart = (text) => {
-    this.setState({DateStart: text});
+    this.setState({ DateStart: text });
   };
 
   onClearDateStart = () => {
-    this.setState({DateStart: ''});
+    this.setState({ DateStart: '' });
   };
   onChangeDateEnd = (text) => {
-    this.setState({DateEnd: text});
+    this.setState({ DateEnd: text });
   };
 
   onClearDateEnd = () => {
-    this.setState({DateEnd: ''});
+    this.setState({ DateEnd: '' });
   };
 
   onPressChooseType = (type) => {
-    this.setState({typeChoose: type});
+    this.setState({ typeChoose: type });
   };
   onPressTypeChooseTime = (title) => {
     console.log('title==', title);
-    this.setState({typeChooseTime: title});
+    this.setState({ typeChooseTime: title });
   };
   onPressTypeChooseSession = (title) => {
     console.log('title==', title);
-    this.setState({typeChooseSession: title});
+    this.setState({ typeChooseSession: title });
   };
-  onChange =()=>{
-    this.setState({Showdate:false})
+  onChange = () => {
+    this.setState({ Showdate: false })
+  }
+  TypeView = (item) => {
+    console.log("mang hinh===", item);
+    switch (item) {
+      case 1:
+        return (<UnpaidRequiest />);
+        break;
+      case 2:
+        return (<OfficialLeave />);
+        break;
+      case 3:
+        return (<DatetimePicker  showdate = {this.state.Showdate}/> );
+        break;
+      case 4:
+        return (<Late />);
+        break;
+      case 5:
+        return (<Soon />);
+        break;
+    }
   }
 
   render() {
-    console.log('this.state.typeChoose==', this.state.typeChoose);
-    console.log(this.state.ListDate);
+
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
@@ -97,20 +121,20 @@ class AddRequiesComponent extends Component {
             Keyboard.dismiss();
           }}
 
-          // onPress = {Keyboard.dismiss}
+        // onPress = {Keyboard.dismiss}
         >
           <ImageBackground
             source={Images.ic_bg_timecard}
-            style={{width: screenWidth, height: screenHeight, flex: 1}}>
-            <ScrollView contentContainerStyle={{flexGrow: 1} }nestedScrollEnabled>
+            style={{ width: screenWidth, height: screenHeight, flex: 1 }}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }} nestedScrollEnabled>
               <View
                 style={{
                   marginHorizontal: 20,
                   marginTop: 20,
                   // marginVertical: 20,
                 }}>
-                <Text style={{fontSize: 15, fontWeight: '700'}}>
-                {this.props.t('Yêu cầu')} *{' '}
+                <Text style={{ fontSize: 15, fontWeight: '700' }}>
+                  {this.props.t('Yêu cầu')} *{' '}
                 </Text>
                 <View
                   style={[
@@ -128,7 +152,9 @@ class AddRequiesComponent extends Component {
                   />
                 </View>
               </View>
-              {this.state.typeChoose === 1 || this.state.typeChoose === 2 || this.state.typeChoose === 4 || this.state.typeChoose === 5 ? (
+              {this.TypeView(this.state.typeChoose)}
+
+              {/* {this.state.typeChoose === 1 || this.state.typeChoose === 2 || this.state.typeChoose === 4 || this.state.typeChoose === 5 ? (
                 <View>
                   <View
                     style={{
@@ -142,6 +168,7 @@ class AddRequiesComponent extends Component {
                         this.setState({ListDate: date});
                       }}></DateSelector>
                   </View>
+
                   <View
                     style={{
                       marginHorizontal: 20,
@@ -155,6 +182,8 @@ class AddRequiesComponent extends Component {
                       borderRadius: 10,
                       
                     }}>
+                      
+                      
                     {this.state.ListDate !== '' && (
                       <ScrollView horizontal={true}>
                         {this.state.ListDate.map((item) => {
@@ -330,7 +359,7 @@ class AddRequiesComponent extends Component {
                   </View>
                 </View>
               ) : null}
-              {this.state.typeChoose === 3 ? <DatetimePicker  showdate = {this.state.Showdate}/> : null}
+              {this.state.typeChoose === 3 ? <DatetimePicker  showdate = {this.state.Showdate}/> : null} */}
 
               <Text
                 style={{
@@ -349,7 +378,7 @@ class AddRequiesComponent extends Component {
                   marginTop: 10,
                 }}>
                 <TextInput
-                onFocus={()=>this.onChange()}
+                  onFocus={() => this.onChange()}
                   style={{
                     width: '90%',
                     borderWidth: 1,
@@ -375,7 +404,7 @@ class AddRequiesComponent extends Component {
                     backgroundColor: '#bb64a1',
                     borderRadius: 10,
                   }}>
-                  <Text style={{color: 'white', fontWeight: '700'}}>
+                  <Text style={{ color: 'white', fontWeight: '700' }}>
                     {this.props.t('XÁC NHẬN')}
                   </Text>
                 </TouchableOpacity>
