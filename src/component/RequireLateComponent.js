@@ -23,7 +23,7 @@ export default class RequireLateComponent extends Component {
       Showdate: '',
       TimeLate: 'Thời gian đi trễ',
       Day: 'Chọn ngày',
-     
+
     };
   }
   onChange = () => {
@@ -43,92 +43,111 @@ export default class RequireLateComponent extends Component {
           onPressBack={() => this.props.navigation.goBack()}
         />
         <TouchableWithoutFeedback
-        style={{backgroundColor:'red'}}
-        
+          style={{ backgroundColor: 'red' }}
 
-          onPress = {()=>{Keyboard.dismiss();this.onChange()}}
+
+          onPress={() => { Keyboard.dismiss(); this.onChange() }}
         >
-          
-        <ImageBackground
-          source={Images.ic_bg_timecard}
-          style={{ height: screenHeight, width: screenWidth,}}>
+
+          <ImageBackground
+            source={Images.ic_bg_timecard}
+            style={{ height: screenHeight, width: screenWidth, }}>
             <ScrollView>
 
-            
-          <View style={{ marginHorizontal: 15, marginVertical: 15}}>
-            <DatetimePickerRequiest showdate={this.state.Showdate} OnDismiss={()=>{this.onDismiss()}} />
 
-            <View style={{ marginTop: 15 }}>
-              <Text style={{ fontSize: 15, fontWeight: '700' }}>
-                Lý do xin đi trễ:
+              <View style={{ marginHorizontal: 15, marginVertical: 15 }}>
+                <DatetimePickerRequiest showdate={this.state.Showdate} OnDismiss={() => { this.onDismiss() }} />
+                <View style={{ marginTop: 15 }}>
+                  <Text style={{ fontSize: 15, fontWeight: '700', }}>
+                    Thời gian:
               </Text>
-              <View>
-                <TextInput
-                  onFocus={() => this.onChange()}
-                  style={{
-                    marginTop: 10,
+                  <TextInput
+                    onFocus={() => this.onChange()}
+                    style={{
+                      marginTop: 10,
 
-                    borderWidth: 1,
-                    height: 100,
-                    borderColor: '#BFBFBF',
-                    paddingHorizontal: 10,
-                    borderRadius: 10,
-                  }}
-                  multiline></TextInput>
+                      borderWidth: 1,
+                      height: 40,
+                      borderColor: '#BFBFBF',
+                      paddingHorizontal: 10,
+                      borderRadius: 10,
+                    }}
+                    multiline></TextInput>
+                    <Text style={{ color: 'gray', fontSize: 15 }}>
+                    Ví dụ : 30 phút , 1 tiếng , 2 tiếng ...
+              </Text>
+                </View>
+                <View style={{ marginTop: 15 }}>
+                  <Text style={{ fontSize: 15, fontWeight: '700' }}>
+                    Lý do xin đi trễ:
+              </Text>
+                  <View>
+                    <TextInput
+                      onFocus={() => this.onChange()}
+                      style={{
+                        marginTop: 10,
+
+                        borderWidth: 1,
+                        height: 100,
+                        borderColor: '#BFBFBF',
+                        paddingHorizontal: 10,
+                        borderRadius: 10,
+                      }}
+                      multiline></TextInput>
+                  </View>
+                </View>
+                <View style={{ marginTop: 15 }}>
+                  <Text style={{ fontSize: 15, fontWeight: '700', }}>
+                    Người nhận thông báo:
+              </Text>
+                  <TextInput
+                    onFocus={() => this.onChange()}
+                    style={{
+                      marginTop: 10,
+
+                      borderWidth: 1,
+                      height: 40,
+                      borderColor: '#BFBFBF',
+                      paddingHorizontal: 10,
+                      borderRadius: 10,
+                    }}
+                    multiline></TextInput>
+                </View>
+                <View >
+                  <Text style={{ color: 'gray', fontSize: 15 }}>
+                    Ví dụ : Kohei Nohara,Loan
+              </Text>
+                </View>
+                <View style={{ marginTop: 15 }}>
+                  <Text style={{ fontSize: 15, fontWeight: '700' }}>
+                    Cán bộ duyệt đơn :
+              </Text>
+                  <Text style={{ marginTop: 5 }}>-HR xem xét (Loan)</Text>
+                  <Text style={{}}>-Manager phê duyệt (Kohei Nohara)</Text>
+                </View>
               </View>
-            </View>
-            <View style={{ marginTop: 15 }}>
-              <Text style={{ fontSize: 15, fontWeight: '700' ,}}>
-                Người nhận thông báo:
-              </Text>
-              <TextInput
-                onFocus={()=>this.onChange()}
+              <View
+                style={{
+                  marginHorizontal: 15,
+                  marginVertical: 15,
+
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                }}>
+                <TouchableOpacity
                   style={{
-                    marginTop: 10,
-                    
-                    borderWidth: 1,
+                    backgroundColor: '#bb64a1',
+                    width: 200,
                     height: 40,
-                    borderColor: '#BFBFBF',
-                    paddingHorizontal: 10,
-                    borderRadius: 10,
-                  }}
-                  multiline></TextInput>
-            </View>
-            <View >
-              <Text style={{ color: 'gray', fontSize: 15 }}>
-                Ví dụ : Kohei Nohara,Loan
-              </Text>
-            </View>
-            <View style={{ marginTop: 15 }}>
-              <Text style={{ fontSize: 15, fontWeight: '700'}}>
-                Cán bộ duyệt đơn :
-              </Text>
-              <Text style={{marginTop: 5}}>-HR xem xét (Loan)</Text>
-              <Text style={{}}>-Manager phê duyệt (Kohei Nohara)</Text>
-            </View>
-          </View>
-          <View
-            style={{
-              marginHorizontal: 15,
-              marginVertical: 15,
-              
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity
-              style={{
-                backgroundColor: '#bb64a1',
-                width: 200,
-                height: 40,
-                borderRadius: 5,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Text style={{ color: 'white', fontWeight: 'bold' }}>GỬI ĐƠN</Text>
-            </TouchableOpacity>
-          </View>
-          </ScrollView>
-        </ImageBackground>
+                    borderRadius: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text style={{ color: 'white', fontWeight: 'bold' }}>GỬI ĐƠN</Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </ImageBackground>
         </TouchableWithoutFeedback>
       </View>
     );

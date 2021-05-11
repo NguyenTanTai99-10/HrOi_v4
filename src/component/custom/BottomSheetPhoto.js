@@ -124,6 +124,9 @@ const BottomSheetPhoto = forwardRef((props, ref) => {
                   alignItems: 'center',
                   marginHorizontal: Sizes.h16,
                   marginVertical: Sizes.h16,
+                  
+                  
+                  
                 }}>
                 <TouchableOpacity
                   onPress={() => {
@@ -140,9 +143,10 @@ const BottomSheetPhoto = forwardRef((props, ref) => {
                     flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
+                   
                   }}>
                   <Text style={{color: 'white'}}>Choose From Library</Text>
-                  {/* {selectItem===item?<Image source={require("../../res/image/img/arrow-up.png")} style={{ width: Sizes.h16, height: Sizes.h16, resizeMode: 'contain' }} />:null} */}
+                 
                 </TouchableOpacity>
               </View>
             </Animated.View>

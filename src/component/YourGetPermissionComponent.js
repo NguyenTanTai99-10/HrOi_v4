@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 import Header from './custom/Header';
-import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
+import { colors, fonts, screenWidth, screenHeight } from '../res/style/theme';
 import Images from '../res/image';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { withTranslation } from 'react-i18next';
@@ -88,11 +88,13 @@ class YourGetPermissionComponent extends Component {
       style={{
         backgroundColor: 'white',
         borderRadius: 10,
+        borderColor: '#bb64a1',
+        borderWidth: 1,
 
         marginTop: 20,
       }}>
-      <View style={{marginHorizontal: 15, marginVertical: 10}}>
-        <View style={{flexDirection: 'row'}}>
+      <View style={{ marginHorizontal: 15, marginVertical: 10 }}>
+        <View style={{ flexDirection: 'row' }}>
           <View
             style={[
               {
@@ -104,25 +106,25 @@ class YourGetPermissionComponent extends Component {
                 flexDirection: 'row',
                 borderWidth: 1,
               },
-              {borderColor: this.chooseColor(item.item)},
+              { borderColor: this.chooseColor(item.item) },
             ]}>
             <Image
               source={this.chooseImage(item.item)}
-              style={{width: 20, height: 20}}
+              style={{ width: 20, height: 20 }}
             />
 
             <Text
               style={[
-                {marginLeft: 5, fontSize: 15},
-                {color: this.chooseColor(item.item)},
+                { marginLeft: 5, fontSize: 15 },
+                { color: this.chooseColor(item.item) },
               ]}>
-                {/* this.props.t(item.item.status) */}
+              {/* this.props.t(item.item.status) */}
               {this.props.t(item.item.status)}
             </Text>
           </View>
         </View>
-        <Text style={{marginTop: 10, fontSize: 22}}>
-        {this.props.t(item.item.require)}</Text>
+        <Text style={{ marginTop: 10, fontSize: 22 }}>
+          {this.props.t(item.item.require)}</Text>
         <View
           style={{
             flexDirection: 'row',
@@ -130,9 +132,9 @@ class YourGetPermissionComponent extends Component {
             justifyContent: 'center',
             alignItems: 'flex-start',
           }}>
-          <Icon name="clock" size={20} style={{color: 'gray'}} />
-          <Text style={{marginLeft: 5, color: 'gray'}}>{this.props.t('Thời gian đăng ký')} :</Text>
-          <Text style={{marginLeft: 5, color: 'gray', flex: 1}}>
+          <Icon name="clock" size={20} style={{ color: 'gray' }} />
+          <Text style={{ marginLeft: 5, color: 'gray' }}>{this.props.t('Thời gian đăng ký')} :</Text>
+          <Text style={{ marginLeft: 5, color: 'gray', flex: 1 }}>
             {item.item.timeapply}
           </Text>
         </View>
@@ -143,9 +145,9 @@ class YourGetPermissionComponent extends Component {
             justifyContent: 'center',
             alignItems: 'flex-start',
           }}>
-          <Icon name="clock" size={20} style={{color: 'gray'}} />
-          <Text style={{marginLeft: 5, color: 'gray'}}>{this.props.t('Thời gian yêu cầu')} :</Text>
-          <Text style={{marginLeft: 5, color: 'gray', flex: 1}}>
+          <Icon name="clock" size={20} style={{ color: 'gray' }} />
+          <Text style={{ marginLeft: 5, color: 'gray' }}>{this.props.t('Thời gian yêu cầu')} :</Text>
+          <Text style={{ marginLeft: 5, color: 'gray', flex: 1 }}>
             {item.item.timerequest}
           </Text>
         </View>
@@ -156,11 +158,13 @@ class YourGetPermissionComponent extends Component {
   render() {
     return (
       <FlatList
-      nestedScrollEnabled
-        contentContainerStyle={{flexGrow: 1,}}
+        nestedScrollEnabled
+        contentContainerStyle={{ flexGrow: 1, }}
         keyExtractor={(item, index) => String(index)}
         data={this.state.data}
         renderItem={this.renderItem}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
       />
     );
   }

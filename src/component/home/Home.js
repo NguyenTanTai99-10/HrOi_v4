@@ -13,6 +13,7 @@ import Sizes from '../../utils/Sizes';
 import HeaderCustom from '../custom/HeaderCustom';
 
 
+
 import {colors, fonts, screenWidth, screenHeight} from '../../res/style/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import moment from 'moment';
@@ -25,11 +26,14 @@ import {
 import Header from '../custom/Header';
 import {notification} from '../Notification/NotificationIOS';
 import { withTranslation } from 'react-i18next';
+import WalletModal from '../custom/WalletModal';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hourCheckOur:'',
+      minuteCheckOur:'',
       timeChekcIn: '',
       time: '',
       timeIn: '',
@@ -38,6 +42,7 @@ class Home extends Component {
       checkOut: true,
       title: 'check in',
     };
+    this.walletModal = React.createRef();
   }
 
   // componentDidMount(){ console.log('1234');}
@@ -55,10 +60,12 @@ class Home extends Component {
     const h = `0${date.getHours()}`.slice(-2);
     const m = `0${date.getMinutes()}`.slice(-2);
     const s = `0${date.getSeconds()}`.slice(-2);
-    return `${h} : ${m}: ${s} `;
+    return `${h}:${m}:${s} `;
   };
+
+  
   Notifi = data => {
-    console.log('title==', data.Title);
+    // console.log('title==', data.Title);
     const option = {
       soundName: 'default',
       playSound: true,
@@ -106,6 +113,26 @@ class Home extends Component {
     // );
     // // notification.PushNotifiContent();
   };
+
+  
+   OverTime =(time)=>{
+    setTimeout(() => {
+      const h = `0${time}`.slice(1, 3);
+    // this.setState({hourCheckOur:h});
+    const m = `0${time}`.slice(4, 6);
+    // this.setState({minuteCheckOur:m});
+    // console.log("=====thong bao===,",m);
+     if(h >= 10 && m > 0){
+      this.walletModal.current.open()
+
+    }
+  
+    }, 2000);
+     
+
+    // console.log("=====thong bao===,",time);
+    
+  }
 
   render() {
     // console.log(this.state.timeNow);
@@ -244,6 +271,7 @@ class Home extends Component {
                   });
                   this.setState({timeOut: this.state.time});
                   this.setState({checkOut: false});
+                  this.OverTime(this.state.time)
                   // this.setState({title: 'check in'});
                 }}>
                 <ImageBackground
@@ -342,20 +370,15 @@ class Home extends Component {
             />
       
           </View>
+          <WalletModal
+               ref={this.walletModal}
+               modalTitle="Bạn có muôn yêu cầu OT"
+               textSubmit="Gữi"
+              //  onSubmit={this.onCreateWallet}
+               cardName=""
+            />
 
-          {/* 
-            <TouchableOpacity>
-                <ImageBackground source={Images.ic_checkin_checkout}
-        style={{height:screenWidth/2,width:screenWidth/2 , justifyContent:'center' , alignItems:'center'}} resizeMode={'cover'} >
-            <Text>
-                Time
-            </Text>
-            <Text style={{fontSize:20, color:'white' }}>
-                CHECK IN
-            </Text>
-
-            </ImageBackground>
-            </TouchableOpacity> */}
+          
         </ImageBackground>
       </View>
     );

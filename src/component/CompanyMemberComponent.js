@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   FlatList,
   Image,
@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import Images from '../res/image';
 import Header from './custom/Header';
-import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
+import { colors, fonts, screenWidth, screenHeight } from '../res/style/theme';
 import LoadingView from './custom/LoadingView';
 import { withTranslation } from 'react-i18next';
 
@@ -58,15 +58,15 @@ class CompanyMemberComponent extends Component {
     );
 
     // console.log('this.props.dataLG',this.props.dataLG.token);
-    this.setState({imageAvt: this.props.dataLG.avatar});
+    this.setState({ imageAvt: this.props.dataLG.avatar });
     //
     this.didFocusListener = this.props.navigation.addListener('focus', () => {
       // do something
-      this.props.companyMenberAction({token: this.props.dataLG.token});
+      this.props.companyMenberAction({ token: this.props.dataLG.token });
     });
   }
   keyboardDidHide() {
-    this.setState({backgroundColor: false});
+    this.setState({ backgroundColor: false });
   }
   componentDidUpdate(prevProps) {
     if (
@@ -95,8 +95,8 @@ class CompanyMemberComponent extends Component {
           data: x,
         });
 
-        this.setState({dataMB: this.props.dataCM});
-        this.setState({dataSearch: this.props.dataCM});
+        this.setState({ dataMB: this.props.dataCM });
+        this.setState({ dataSearch: this.props.dataCM });
       } else {
         // console.log('vao day message');
         setTimeout(() => {
@@ -131,8 +131,8 @@ class CompanyMemberComponent extends Component {
         // borderWidth: 1,q
         backgroundColor: 'white',
         borderRadius: 10,
-        borderColor:'#bb64a1',
-        borderWidth:1
+        borderColor: '#bb64a1',
+        borderWidth: 1
       }}>
       <View
         style={{
@@ -140,20 +140,20 @@ class CompanyMemberComponent extends Component {
           alignItems: 'center',
           marginVertical: 10,
         }}>
-        <View style={{borderRadius: 50, borderColor: '#91D5FF', borderWidth: 2}}>
+        <View style={{ borderRadius: 50, borderColor: '#91D5FF', borderWidth: 2 }}>
           <Image
             source={{
               uri: `${item.item.avatar}`,
             }}
-            style={{height: 50, width: 50, borderRadius: 9999}}
+            style={{ height: 50, width: 50, borderRadius: 9999 }}
             resizeMode="cover"
           />
         </View>
 
-        <Text style={{marginTop: 5, fontWeight: '600'}}>
+        <Text style={{ marginTop: 5, fontWeight: '600' }}>
           {item.item.name.toUpperCase()}
         </Text>
-        <Text style={{fontWeight: '600'}}>
+        <Text style={{ fontWeight: '600' }}>
           {item.item.position}
         </Text>
       </View>
@@ -169,13 +169,13 @@ class CompanyMemberComponent extends Component {
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
-      this.setState({dataMB: newData});
-      this.setState({search: text});
+      this.setState({ dataMB: newData });
+      this.setState({ search: text });
     } else {
-      this.setState({dataMB: this.props.dataCM});
+      this.setState({ dataMB: this.props.dataCM });
     }
   };
-  
+
   itemSearch = text => {
     console.log(text.length);
     if (text.length >= 1) {
@@ -185,15 +185,15 @@ class CompanyMemberComponent extends Component {
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
-      this.setState({dataMB: newData});
-      this.setState({search: text});
+      this.setState({ dataMB: newData });
+      this.setState({ search: text });
     } else {
-      this.setState({dataMB: this.props.dataCM});
+      this.setState({ dataMB: this.props.dataCM });
     }
   };
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <Header
           title={this.props.t('Thành viên')}
           isShowImage
@@ -206,7 +206,7 @@ class CompanyMemberComponent extends Component {
 
         <ImageBackground
           source={Images.ic_bg_timecard}
-          style={{height: screenHeight, width: screenWidth , flex:1}}>
+          style={{ height: screenHeight, width: screenWidth, flex: 1 }}>
           <View
             style={{
               marginTop: 5,
@@ -224,47 +224,48 @@ class CompanyMemberComponent extends Component {
                 borderWidth: 1,
                 borderRadius: 20,
                 borderColor: '#BFBFBF',
-                flex:1
+                flex: 1
               }}>
               <Icon
                 name="search"
-                style={{color: '#BFBFBF', marginLeft: 10 , flex:0.1}}
+                style={{ color: '#BFBFBF', marginLeft: 10, flex: 0.1 }}
                 size={20}
               />
               <TextInput
-              
+
                 // multiline
                 // value={this.state.search}
 
                 onFocus={() => {
-                  this.setState({backgroundColor: true});
+                  this.setState({ backgroundColor: true });
                 }}
                 onChangeText={text => {
                   this.textSearch(text);
                 }}
                 style={{
-                  
-                  flex:0.9,
-                  
+
+                  flex: 0.9,
+
                   height: 40,
                 }}
                 placeholder={this.props.t('Tìm kiếm tên ...')}></TextInput>
             </View>
-            
+
           </View>
-          <View style={{marginBottom:40  , flex:1}}>
-               <ScrollView nestedScrollEnabled >
-            <FlatList
-              data={this.state.dataMB}
-              
-              keyExtractor={(item, index) => String(index)}
-              renderItem={this.renderItem}
-              numColumns={2}
-            />
-          </ScrollView>
+          <View style={{ marginBottom: 40, flex: 1 }}>
+            <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}>
+              <FlatList
+                data={this.state.dataMB}
+                
+                keyExtractor={(item, index) => String(index)}
+                renderItem={this.renderItem}
+                numColumns={2}
+              />
+            </ScrollView>
           </View>
 
-       
+
         </ImageBackground>
       </View>
     );

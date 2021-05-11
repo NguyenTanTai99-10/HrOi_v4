@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Button,
@@ -9,23 +9,23 @@ import {
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Sizes from '../../utils/Sizes';
-import {colors, screenWidth, screenHeight} from '../../res/style/theme';
+import { colors, screenWidth, screenHeight } from '../../res/style/theme';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 
 export const DatetimePicker = (props) => {
   const { t, i18n } = useTranslation();
-  
+
   useEffect(() => {
-  console.log('====================================');
-  console.log('props==',props.showdate);
-  console.log('====================================');
-  if ( props.showdate === false){
-    setShow(false);
-  setShow1(false);
-  setShow2(false);
-  setShow3(false);
-  }
+    console.log('====================================');
+    console.log('props==', props.showdate);
+    console.log('====================================');
+    if (props.showdate === false) {
+      setShow(false);
+      setShow1(false);
+      setShow2(false);
+      setShow3(false);
+    }
   }, [props])
   //==========================================================================
   const [disabled1, setDisabled1] = useState(false);
@@ -91,8 +91,8 @@ export const DatetimePicker = (props) => {
     setShow2(Platform.OS === 'ios');
     seTimeStart(chooseTimeStart);
     setDate2(selectedDate2)
-    
-    
+
+
   };
 
   const showMode2 = (currentMode) => {
@@ -157,7 +157,7 @@ export const DatetimePicker = (props) => {
           justifyContent: 'space-between',
         }}>
         <View style={{}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>{t('Chọn ngày bắt đầu')}* </Text>
+          <Text style={{ fontSize: 15, fontWeight: '700' }}>{t('Chọn ngày bắt đầu')}* </Text>
           <TouchableOpacity
             style={{
               width: (screenWidth * 0.8) / 2,
@@ -171,9 +171,9 @@ export const DatetimePicker = (props) => {
               backgroundColor: '#FFFFFF',
               borderColor: '#BFBFBF',
               paddingHorizontal: 10,
-              borderWidth:1
+              borderWidth: 1
             }}
-            onPress={()=>{showDatepicker();setShow2(false);setShow3(false);setShow1(false)}}>
+            onPress={() => { showDatepicker();setShow(!show); setShow2(false); setShow3(false); setShow1(false) }}>
             <Text numberOfLines={1}  >{DateStart}</Text>
 
             <Image
@@ -186,11 +186,11 @@ export const DatetimePicker = (props) => {
             />
           </TouchableOpacity>
         </View>
-        <View style={{marginHorizontal:10,}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>{t('Chọn thời gian bắt đầu')}* </Text>
+        <View style={{ marginHorizontal: 10, }}>
+          <Text style={{ fontSize: 15, fontWeight: '700' }}>{t('Chọn thời gian bắt đầu')}* </Text>
           <TouchableOpacity
             style={{
-              width: (screenWidth *0.8 ) / 2,
+              width: (screenWidth * 0.8) / 2,
               marginTop: 10,
 
               height: 40,
@@ -201,10 +201,10 @@ export const DatetimePicker = (props) => {
               backgroundColor: '#FFFFFF',
               borderColor: '#BFBFBF',
               paddingHorizontal: 10,
-              
-              borderWidth:1
+
+              borderWidth: 1
             }}
-            onPress={()=>{showTimepicker2();setShow(false);setShow3(false);setShow1(false)}}>
+            onPress={() => { showTimepicker2();setShow2(!show2); setShow(false); setShow3(false); setShow1(false) }}>
             <Text numberOfLines={1}  >{TimeStart}</Text>
             <Image
               source={require('../../res/image/img/arrow-down.png')}
@@ -219,7 +219,7 @@ export const DatetimePicker = (props) => {
       </View>
       {show && (
         <DateTimePicker
-        
+          minimumDate={new Date()}
           testID="dateTimePicker"
           value={date}
           mode={mode}
@@ -247,7 +247,7 @@ export const DatetimePicker = (props) => {
           justifyContent: 'space-between',
         }}>
         <View style={{}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>{t('Chọn ngày kết thúc')}* </Text>
+          <Text style={{ fontSize: 15, fontWeight: '700' }}>{t('Chọn ngày kết thúc')}* </Text>
           <TouchableOpacity
             style={{
               width: (screenWidth * 0.8) / 2,
@@ -261,9 +261,9 @@ export const DatetimePicker = (props) => {
               backgroundColor: '#FFFFFF',
               borderColor: '#BFBFBF',
               paddingHorizontal: 10,
-              borderWidth:1
+              borderWidth: 1
             }}
-            onPress={()=>{showDatepicker1();setShow(false);setShow3(false);setShow2(false)}}>
+            onPress={() => { showDatepicker1(); setShow1(!show1);setShow(false); setShow3(false); setShow2(false) }}>
             <Text numberOfLines={1}  >{DateEnd}</Text>
 
             <Image
@@ -276,9 +276,9 @@ export const DatetimePicker = (props) => {
             />
           </TouchableOpacity>
         </View>
-        <View style={{marginHorizontal:10,}}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>
-          {t('Chọn thời gian kết thúc')} *{' '}
+        <View style={{ marginHorizontal: 10, }}>
+          <Text style={{ fontSize: 15, fontWeight: '700' }}>
+            {t('Chọn thời gian kết thúc')} *{' '}
           </Text>
           <TouchableOpacity
             style={{
@@ -293,9 +293,9 @@ export const DatetimePicker = (props) => {
               backgroundColor: '#FFFFFF',
               borderColor: '#BFBFBF',
               paddingHorizontal: 10,
-              borderWidth:1
+              borderWidth: 1
             }}
-            onPress={()=>{showTimepicker3();setShow(false);setShow2(false);setShow1(false)}}>
+            onPress={() => { showTimepicker3();setShow3(!show3); setShow(false); setShow2(false); setShow1(false) }}>
             <Text numberOfLines={1} >{TimeEnd}</Text>
             <Image
               source={require('../../res/image/img/arrow-down.png')}
@@ -303,7 +303,7 @@ export const DatetimePicker = (props) => {
                 width: Sizes.h30,
                 height: Sizes.h30,
                 resizeMode: 'contain',
-                
+
               }}
             />
           </TouchableOpacity>

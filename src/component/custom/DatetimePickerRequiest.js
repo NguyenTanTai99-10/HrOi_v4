@@ -23,9 +23,9 @@ const DatetimePickerRequiest = (props) => {
         console.log('====================================');
         if (props.showdate === false) {
             setShow(false);
-            
+
             setShow2(false);
-            
+
         }
     }, [props])
     const { t, i18n } = useTranslation();
@@ -86,6 +86,7 @@ const DatetimePickerRequiest = (props) => {
     const showTimepicker2 = () => {
         showMode2('time');
     };
+    
     return (
         <View>
             <View
@@ -111,7 +112,7 @@ const DatetimePickerRequiest = (props) => {
                             paddingHorizontal: 10,
                             borderWidth: 1
                         }}
-                        onPress={() => { showDatepicker(); setShow2(false); props.OnDismiss() }}>
+                        onPress={() => { showDatepicker();setShow(!show) ;setShow2(false); props.OnDismiss() }}>
                         <Text numberOfLines={1}  >{DateStart}</Text>
 
                         <Image
@@ -124,40 +125,11 @@ const DatetimePickerRequiest = (props) => {
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={{ marginHorizontal: 10, }}>
-                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{t('Chọn thời gian bắt đầu')}* </Text>
-                    <TouchableOpacity
-                        style={{
-                            width: (screenWidth * 0.8) / 2,
-                            marginTop: 10,
-
-                            height: 40,
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            flexDirection: 'row',
-                            borderRadius: 8,
-                            backgroundColor: '#FFFFFF',
-                            borderColor: '#BFBFBF',
-                            paddingHorizontal: 10,
-
-                            borderWidth: 1
-                        }}
-                        onPress={() => { showTimepicker2(); setShow(false);props.OnDismiss() }}>
-                        <Text numberOfLines={1}  >{TimeStart}</Text>
-                        <Image
-                            source={require('../../res/image/img/arrow-down.png')}
-                            style={{
-                                width: Sizes.h30,
-                                height: Sizes.h30,
-                                resizeMode: 'contain',
-                            }}
-                        />
-                    </TouchableOpacity>
-                </View>
+                
             </View>
             {show && (
                 <DateTimePicker
-
+                    minimumDate={new Date()}
                     testID="dateTimePicker"
                     value={date}
                     mode={mode}
@@ -166,16 +138,7 @@ const DatetimePickerRequiest = (props) => {
                     onChange={onChange}
                 />
             )}
-            {show2 && (
-                <DateTimePicker
-                    testID="dateTimePicker"
-                    value={date2}
-                    mode={mode2}
-                    is24Hour={true}
-                    display="default"
-                    onChange={onChange2}
-                />
-            )}
+
         </View>
     )
 }

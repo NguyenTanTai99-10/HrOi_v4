@@ -2,6 +2,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { View, Text, Modal, TouchableWithoutFeedback, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { colors } from '../../res/style/theme';
 
+
 const Modals = forwardRef((props, ref) => {
    const [show, setShow] = useState(false);
 

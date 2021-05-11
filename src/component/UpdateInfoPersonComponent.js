@@ -231,7 +231,7 @@ class UpdateInfoPersonComponent extends Component {
               ref={this.modal}
               title="UPLOAD PHOTO"
               data={this.state.tittlePhoto}
-              modalHeight={150}
+              modalHeight={200}
               onPressTakePhoto = {()=>this.takePhoto()}
               onPressLibraryPhoto ={()=>this.libraryPhoto()}
             />
