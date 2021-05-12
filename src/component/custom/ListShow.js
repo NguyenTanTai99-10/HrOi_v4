@@ -84,13 +84,13 @@ class ListShow extends Component {
         <TouchableOpacity
           style={{
             overflow: 'hidden',
-            height: 40,
+            height: Sizes.s80,
             
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            paddingHorizontal: 10,
-            borderRadius: 8,
+            paddingHorizontal: Sizes.s20,
+            borderRadius: Sizes.h16,
             backgroundColor: '#FFFFFF',
             borderColor: '#BFBFBF',
             borderWidth:1
@@ -102,7 +102,7 @@ class ListShow extends Component {
             this.setState({expande: !this.state.expande});
             this.setState({updown: !this.state.updown})
           }}>
-          <Text style={{fontSize: 15, fontWeight: '700'}}>{this.state.titleChoose}</Text>
+          <Text style={{fontSize: Sizes.s30, fontWeight: '700'}}>{this.state.titleChoose}</Text>
           {this.state.updown === true ? (<Image
             source={require('../../res/image/img/arrow-down.png')}
             style={{width: Sizes.h30, height: Sizes.h30, resizeMode: 'contain'}}

@@ -24,7 +24,7 @@ const Header = props => {
       
       style={styles.iconBack}
       onPress={() => props.onPressBack()}>
-      <Icon name="arrow-left" size={20} color={colors.white} />
+      <Icon name="arrow-left" size={Sizes.s40} color={colors.white} />
     </TouchableOpacity>
   );
   const iconMenu = () => (
@@ -32,22 +32,22 @@ const Header = props => {
       
       style={styles.iconBack}
       onPress={() => props.onPressMenu()}>
-      <Icon name="bars" size={20} color={colors.white} />
+      <Icon name="bars" size={Sizes.s40} color={colors.white} />
     </TouchableOpacity>
   );
   const iconRight = () => (
     <TouchableOpacity
       style={{
-        width: 40,
-        height: 40,
-        marginHorizontal: 10,
+        width: Sizes.s80,
+        height: Sizes.s80,
+        marginHorizontal: Sizes.s20,
         justifyContent: 'center',
         alignItems: 'center',
         
       }}
       onPress={() => props.iconRight()}>
         {/* plus-circle */}
-        <Icon name="plus-circle" size={25} color={colors.white} />
+        <Icon name="plus-circle" size={Sizes.s50} color={colors.white} />
       {/* <Image  source={Images.icon_add} style={{width:30, height:30}}/> */}
       {/* <Text>acb</Text> */}
     </TouchableOpacity>
@@ -58,12 +58,12 @@ const Header = props => {
     <TouchableOpacity 
     onPress={()=>props.onPressImage()}
       style={{
-        width: 30,
-        height: 30,
-        marginHorizontal: 10,
+        width: Sizes.s60,
+        height: Sizes.s60,
+        marginHorizontal: Sizes.s20,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 100,
+        borderRadius: Sizes.s200,
       }}>
       {/* <View
         style={{
@@ -74,7 +74,7 @@ const Header = props => {
         source={{
           uri: `${props.image}`,
         }}
-        style={{width: 30, height: 30, resizeMode: 'cover', borderRadius: 9999}}
+        style={{width: Sizes.s60, height: Sizes.s60, resizeMode: 'cover', borderRadius: 9999}}
         // resizeMode="contain"
       ></Image>
 
@@ -84,13 +84,13 @@ const Header = props => {
   const textRight = () => (
     <TouchableOpacity
       
-      style={{ marginHorizontal: 10,
-      width: 40,
-        height: 40,
+      style={{ marginHorizontal: Sizes.s20,
+      width: Sizes.s80,
+        height: Sizes.s80,
         justifyContent: 'center',
         alignItems: 'center',}}
       onPress={() => props.onPressNavigate()}>
-      <Text  style={{color:'white', fontSize:17 ,fontWeight: '700',}} >
+      <Text  style={{color:'white', fontSize:Sizes.h34 ,fontWeight: '700',}} >
         {t('Sửa')}
       </Text>
     </TouchableOpacity>
@@ -155,15 +155,15 @@ const styles = StyleSheet.create({
     // borderBottomWidth: 1,
   },
   title: {
-    fontSize: 18,
+    fontSize: Sizes.h36,
     fontWeight: 'bold',
     color: colors.white,
   },
   iconBack: {
     position: 'absolute',
     left: 0,
-    height: 48,
-    paddingHorizontal: 16,
+    height: Sizes.h95,
+    paddingHorizontal: Sizes.h32,
     justifyContent: 'center',
     alignItems: 'center',
      

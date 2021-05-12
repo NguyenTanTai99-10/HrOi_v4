@@ -96,20 +96,20 @@ const DatetimePickerRequiest = (props) => {
                     justifyContent: 'space-between',
                 }}>
                 <View style={{}}>
-                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{t('Chọn ngày bắt đầu')}* </Text>
+                    <Text style={{ fontSize: Sizes.s30, fontWeight: '700' }}>{t('Chọn ngày bắt đầu')}* </Text>
                     <TouchableOpacity
                         style={{
                             width: (screenWidth * 0.8) / 2,
-                            marginTop: 10,
+                            marginTop: Sizes.s20,
 
-                            height: 40,
+                            height: Sizes.s80,
                             justifyContent: 'space-between',
                             alignItems: 'center',
                             flexDirection: 'row',
-                            borderRadius: 8,
+                            borderRadius: Sizes.h16,
                             backgroundColor: '#FFFFFF',
                             borderColor: '#BFBFBF',
-                            paddingHorizontal: 10,
+                            paddingHorizontal: Sizes.s20,
                             borderWidth: 1
                         }}
                         onPress={() => { showDatepicker();setShow(!show) ;setShow2(false); props.OnDismiss() }}>

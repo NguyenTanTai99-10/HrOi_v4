@@ -1,10 +1,12 @@
 import React, { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { colors, fonts } from '../../res/style/theme';
+import Sizes from '../../utils/Sizes';
 // import { colors, fonts } from '../../../res/style/theme';
 import Modals from './Modals';
 // import Modals from '../../custom/Modals';
 import TextInputAnimated from './TextInputAnimated';
+
 // import TextInputAnimated from '../../custom/TextInputAnimated';
 
 
@@ -91,32 +93,32 @@ const styles = StyleSheet.create({
    edit: {
       backgroundColor: colors.white,
       width: '80%',
-      borderRadius: 10,
-      paddingVertical: 24,
+      borderRadius: Sizes.s20,
+      paddingVertical: Sizes.h48,
    },
    titleEdit: {
-      fontSize: 20,
+      fontSize: Sizes.s40,
       textAlign: 'center',
       color: colors.black,
       fontFamily: fonts.bold,
    },
    input: {
-      marginTop: 20,
+      marginTop: Sizes.s40,
    },
    viewBtn: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
-      marginTop: 20,
+      marginTop: Sizes.s40,
    },
    btn: {
       backgroundColor: colors.green,
-      borderRadius: 8,
-      padding: 12,
+      borderRadius: Sizes.h16,
+      padding: Sizes.h24,
       width: '40%',
    },
    txtBtn: {
-      fontSize: 18,
+      fontSize: Sizes.h36,
       fontFamily: fonts.bold,
       color: colors.white,
       textAlign: 'center',
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
    action: {
       flexDirection: 'row',
       position: 'absolute',
-      bottom: 8,
-      right: 8,
+      bottom: Sizes.h16,
+      right: Sizes.h16,
    },
 });

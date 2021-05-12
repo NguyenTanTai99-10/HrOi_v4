@@ -18,10 +18,12 @@ import { withTranslation } from 'react-i18next';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Images from '../../res/image';
 import { colors, fonts, screenWidth, screenHeight } from '../../res/style/theme';
+
 import StatusBarView from '../custom/StatusBarView';
 import TextInputAnimated from '../custom/TextInputAnimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingView from '../custom/LoadingView';
+import Sizes from '../../utils/Sizes';
 const logoSize = screenWidth * 0.5;
 const duration = 350;
 class Login extends Component {
@@ -90,7 +92,7 @@ class Login extends Component {
       this.setState({ password: '' });
    };
    onChangePassword = (text) => {
-      
+
       this.setState({ password: text });
    };
 
@@ -168,22 +170,19 @@ class Login extends Component {
             <LoadingView visible={this.props.loading} />
             <ImageBackground
                source={Images.ic_bg_timecard}
-               style={{ width: screenWidth, height: screenHeight }}
-            ><Animated.Image
+               style={{ width: screenWidth, height: screenHeight }}>
+               <Animated.Image
                   source={Images.ic_logo}
                   resizeMode='contain'
                   style={[styles.logo, { height: this.zoomLogo, width: this.zoomLogo }]}
                />
-               {/* /////////////////////////// */}
+              
                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-
                   <Image source={Images.welcome_PNG32}
-                  resizeMode ='contain'
-                     style={{ height: 100, width :screenWidth*0.9}}
+                     resizeMode='contain'
+                     style={{ height: Sizes.s200, width: screenWidth * 0.9 }}
                   />
-               </View> 
-
-
+               </View>
                <TextInputAnimated
                   label={this.props.t('Tên đăng nhập')}
                   style={styles.input}
@@ -199,7 +198,6 @@ class Login extends Component {
                   onChangeText={this.onChangePassword}
                   onPressClear={this.onClearPassword}
                />
-               {/* ////////////////////////// */}
                <TouchableOpacity style={styles.save}
                   onPress={this.onPressSaveLogin}
                >
@@ -215,8 +213,6 @@ class Login extends Component {
                >
                   <Text style={styles.txtBtnLogin}>{this.props.t('Đăng nhập')}</Text>
                </TouchableOpacity>
-
-               {/* ////////////////////// */}
                <View style={styles.view}>
                   <TouchableOpacity
                      style={styles.subView}
@@ -236,21 +232,18 @@ class Login extends Component {
                      style={styles.subView1}
                   // onPress={() => this.props.navigation.navigate('Forget')}
                   >
-                     <Image source={Images.ic_facebook} style={{ height: 70, width: 70 }} resizeMode='contain' />
+                     <Image source={Images.ic_facebook} style={{ height: Sizes.s140, width: Sizes.s140 }} resizeMode='contain' />
                   </TouchableOpacity>
                   <TouchableOpacity
                      style={styles.subView1}
                   // onPress={() => this.props.navigation.navigate('SignUp')}
                   >
-                     <Image source={Images.ic_gmail} style={{ height: 70, width: 70 }} resizeMode='contain' />
+                     <Image source={Images.ic_gmail} style={{ height: Sizes.s140, width: Sizes.s140 }} resizeMode='contain' />
 
 
                   </TouchableOpacity>
                </View>
-
             </ImageBackground>
-            {/* /////////logo////////// */}
-
          </ScrollView>
       );
    }
@@ -261,58 +254,58 @@ const styles = StyleSheet.create({
       backgroundColor: colors.white,
    },
    input: {
-      marginTop: 20,
+      marginTop: Sizes.s40,
       backgroundColor: '#f0eff6'
    },
    logo: {
       alignSelf: 'center',
-      marginTop: 20,
+      marginTop: Sizes.s40,
 
    },
    login: {
-      fontSize: 32,
+      fontSize: Sizes.h65,
       fontWeight: 'bold',
       color: colors.red2,
       textAlign: 'center',
-      marginVertical: 16,
+      marginVertical: Sizes.h32,
    },
    btnLogin: {
-      height: 44,
+      height: Sizes.s85,
       backgroundColor: colors.blue,
       justifyContent: 'center',
       alignItems: 'center',
-      marginHorizontal: 16,
-      marginTop: 20,
-      borderRadius: 50,
+      marginHorizontal: Sizes.h32,
+      marginTop: Sizes.s40,
+      borderRadius: Sizes.s100,
    },
    txtBtnLogin: {
-      fontSize: 18,
+      fontSize: Sizes.h36,
       color: colors.white,
       // fontFamily: fonts.bold,
    },
    view: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      padding: 16,
+      padding: Sizes.h32,
    },
    subView: {
-      height: 44,
-      borderRadius: 50,
+      height: Sizes.s85,
+      borderRadius: Sizes.s100,
       backgroundColor: colors.green1,
       justifyContent: 'center',
       alignItems: 'center',
       width: '47%',
    },
    subView1: {
-      height: 44,
-      borderRadius: 50,
+      height: Sizes.s85,
+      borderRadius: Sizes.s100,
       // backgroundColor: colors.green1,
       justifyContent: 'center',
       alignItems: 'center',
       width: '47%',
    },
    txtsignup: {
-      fontSize: 15,
+      fontSize: Sizes.h30,
       textAlign: 'center',
       color: colors.white,
       // fontFamily: fonts.semibold,
@@ -320,13 +313,13 @@ const styles = StyleSheet.create({
    save: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingHorizontal: 28,
-      marginTop: 12,
+      paddingHorizontal: Sizes.s55,
+      marginTop: Sizes.h24,
    },
    txtSave: {
-      fontSize: 16,
+      fontSize: Sizes.h32,
       color: colors.blue,
-      marginLeft: 8,
+      marginLeft: Sizes.h16,
       // fontFamily: fonts.medium,
    },
 });

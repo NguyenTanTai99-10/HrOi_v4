@@ -57,21 +57,7 @@ const BottomSheetPhoto = forwardRef((props, ref) => {
       setShow(false);
     }, time);
   };
-  //   const renderItems = ({ item, index }) => (
-  //       <View style={{justifyContent: 'center', alignItems: 'center', padding: Sizes.h16 }} >
-  //            <TouchableOpacity onPress={() => { props.onPress(); setSelectItem(item);  }} style={{
-  //       padding: Sizes.h16, borderWidth: 1,
-  //       backgroundColor:'#bb64a1',
-  //       width:150,
-  //       borderRadius:6,
-  //       borderColor: 'white', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'
-  //     }}>
-  //       <Text style={{color:'white'}}>{item.title}</Text>
-  //       {/* {selectItem===item?<Image source={require("../../res/image/img/arrow-up.png")} style={{ width: Sizes.h16, height: Sizes.h16, resizeMode: 'contain' }} />:null} */}
-  //     </TouchableOpacity>
-  //       </View>
 
-  //   )
   useEffect(() => {
     show ? slideUp() : onHide();
   }, [show]);
@@ -174,8 +160,8 @@ const styles = StyleSheet.create({
   },
   modal: {
     backgroundColor: 'white',
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
+    borderTopLeftRadius: Sizes.h24,
+    borderTopRightRadius: Sizes.h24,
   },
   title: {
     height: Sizes.h65,

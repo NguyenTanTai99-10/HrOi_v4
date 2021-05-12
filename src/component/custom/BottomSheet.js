@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
   },
   modal: {
     backgroundColor: 'white',
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12
+    borderTopLeftRadius: Sizes.h24,
+    borderTopRightRadius: Sizes.h24
   },
   title: {
     height: Sizes.h65,

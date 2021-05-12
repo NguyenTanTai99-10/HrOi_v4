@@ -279,5 +279,5 @@ const styles = StyleSheet.create({
       backgroundColor: colors.white,
    },
    disabled: { backgroundColor: colors.gray4 },
-   icon32: { width: 20, height: 20 },
+   icon32: { width: Sizes.s40, height: Sizes.s40 },
 });

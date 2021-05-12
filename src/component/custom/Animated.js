@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View, Animated, Platform} from 'react-native';
+import Sizes from '../../utils/Sizes';
 
 export default class Animation extends Component {
   constructor(props) {
@@ -25,23 +26,23 @@ export default class Animation extends Component {
         style={{
           alignItems: 'center',
         
-          zIndex: 2,
+          zIndex: Sizes.s4,
           position: 'absolute',
           width: '100%',
         }}>
         <View
           style={{
             alignItems: 'center',
-            borderBottomLeftRadius: 20,
-            borderBottomRightRadius: 20,
+            borderBottomLeftRadius: Sizes.s40,
+            borderBottomRightRadius: Sizes.s400,
             backgroundColor: 'white',
             width: '80%',
           }}>
           <Animated.View
             style={{
-              borderRadius: 10,
-              paddingHorizontal: 10,
-              height: 40,
+              borderRadius: Sizes.s20,
+              paddingHorizontal: Sizes.s20,
+              height: Sizes.s80,
 
               marginTop: marginTop,
               justifyContent: 'center',
