@@ -23,7 +23,7 @@ import  DetailContainer from './src/container/home/DetailContainer';
 
 import  DrawerComponent from './src/component/drawer/DrawerComponent';
 import  DrawerConatiner  from './src/container/DrawerContainer/DrawerConatiner';
-import InfoPerson from './src/component/InfoPerson';
+
 import RequireLateContainer from './src/container/RequireLate/RequireLateContainer';
 import FogetPasswordConatiner from './src/container/FogetPasswordConatiner/FogetPasswordConatiner';
 import ChangePasswordContainer from './src/container/ChangePasswordContainer/ChangePasswordContainer';
@@ -127,7 +127,7 @@ const App = () => {
             
             <Stack.Screen name="Login" component={LoginContainer} />
             <Stack.Screen name="Drawers" component={Drawers} />
-            <Stack.Screen name="InfoPerson" component={InfoPerson} />
+            
             <Stack.Screen name="RequireLateContainer" component={RequireLateContainer} />
             <Stack.Screen name="FogetPasswordConatiner" component={FogetPasswordConatiner} />
             <Stack.Screen name="ChangePasswordContainer" component={ChangePasswordContainer} />

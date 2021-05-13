@@ -19,10 +19,9 @@ import HeaderCustom from '../custom/HeaderCustom';
 import Header from '../custom/Header';
 
 const listMenu = [
-  {title: 'Thông tin cá nhân', icon: Images.ic_user, screen: 'InfoPerson'},
+  {title: 'Thông tin cá nhân', icon: Images.ic_user, screen: 'UpdateInfoPersonContainer'},
   {title: 'Đổi mật khẩu', icon: Images.ic_lock1, screen: 'ChangePasswordContainer'},
-  {title: 'Thông tin chi tiết', icon: Images.ic_info, screen: ''},
-  {title: 'Hướng dẫn sử dụng', icon: Images.ic_guide, screen: ''},
+  
   {title: 'Cài đặt', icon: Images.ic_setting, screen: 'SettingLanguage'},
 ];
 

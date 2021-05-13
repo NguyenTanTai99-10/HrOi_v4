@@ -82,7 +82,7 @@ class UpdateInfoPersonComponent extends Component {
         <Header
           isShowBack
           onPressBack={() => this.props.navigation.goBack()}
-          title={this.props.t("Sửa thông tin cá nhân")}
+          title={this.props.t("Thông tin cá nhân")}
         />
         {/* http://45.119.213.225/timecard/storage/2020/08/avatar_1598275999.jpeg */}
 
@@ -224,7 +224,7 @@ class UpdateInfoPersonComponent extends Component {
                   height: 50,
                   borderRadius: 8,
                 }}>
-                <Text style={{color: 'white', fontWeight: 'bold'}}>{this.props.t('XÁC NHẬN')}</Text>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>{this.props.t('Thay đổi')}</Text>
               </TouchableOpacity>
             </View>
             <BottomSheetPhoto

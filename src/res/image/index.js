@@ -34,6 +34,8 @@ const Images = {
   // forgot_password
   // —Pngtree—deadline time management business concept_5316423.png
   //icon_upload_img.png
+  // google.png 
+  google_png: require('./img/google.png'),
   icon_upload_img: require('./img/icon_upload_img.png'),
 
   time_management: require('./img/PngItem.png'),
@@ -337,7 +339,7 @@ const Images = {
 
 //   ic_square: require('./img/ic_square.png'),
 //   ic_check_square: require('./img/ic_check_square.png'),
-//   ic_close: require('./img/ic_close.png'),
+  ic_close: require('./img/ic_close.png'),
 
 //   ic_input_search: require('./img/ic_input_search.png'),
 //   ic_no_select: require('./img/ic_no_select.png'),

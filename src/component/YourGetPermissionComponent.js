@@ -88,8 +88,8 @@ class YourGetPermissionComponent extends Component {
       style={{
         backgroundColor: 'white',
         borderRadius: 10,
-        borderColor: '#bb64a1',
-        borderWidth: 1,
+        //borderColor: '#bb64a1',
+        //borderWidth: 1,
 
         marginTop: 20,
       }}>

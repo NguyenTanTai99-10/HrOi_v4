@@ -138,6 +138,8 @@ const Sizes = {
   s120: scale(basicSize.s120),
   s140: scale(basicSize.s140),
   s160: scale(basicSize.s160),
+  s180: scale(basicSize.s180),
+  
   s200: scale(basicSize.s200),
   s240: scale(basicSize.s240),
   s260: scale(basicSize.s260),

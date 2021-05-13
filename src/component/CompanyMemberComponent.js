@@ -18,11 +18,16 @@ import LoadingView from './custom/LoadingView';
 import { withTranslation } from 'react-i18next';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import DropDownPicker from 'react-native-dropdown-picker';
+import ListPotion from './custom/ListPotion';
+
 
 class CompanyMemberComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      open: false,
+      value: null,
       imageAvt: '',
       dataMB: '',
       dataSearch: '',
@@ -30,22 +35,22 @@ class CompanyMemberComponent extends Component {
       backgroundColor: false,
       Kqcc: '',
       data: [
-        // {label: 'barking every day', value: 'barking every day'},
-        // {label: 'Website Developer', value: 'Website Developer'},
-        // {label: 'Accountant', value: 'Accountant'},
-        // {label: 'DIRECTOR & TESTER', value: 'DIRECTOR & TESTER'},
-        // {label: 'Video Editor', value: 'Video Editor'},
-        // {label: 'Faculty of Law', value: 'Faculty of Law'},
-        // {label: 'Accountant', value: 'Accountant'},
-        // {label: 'Website Developer', value: 'Website Developer'},
-        // {label: 'Android Developer', value: 'Android Developer'},
-        // {label: 'Designer', value: 'Designer'},
-        // {label: 'Mobile Developer', value: 'Mobile Developer'},
-        // {label: 'QC', value: 'QC'},
-        // {label: 'IOS Developer', value: 'IOS Developer'},
-        // {label: 'Mobile Developer', value: 'Mobile Developer'},
-        // {label: 'Sales Marketing', value: 'Sales Marketing'},
-        // {label: 'Recruiter', value: 'Recruiter'},
+        {label: 'barking every day', value: 'barking every day'},
+        {label: 'Website Developer', value: 'Website Developer'},
+        {label: 'Accountant', value: 'Accountant'},
+        {label: 'DIRECTOR & TESTER', value: 'DIRECTOR & TESTER'},
+        {label: 'Video Editor', value: 'Video Editor'},
+        {label: 'Faculty of Law', value: 'Faculty of Law'},
+        {label: 'Accountant', value: 'Accountant'},
+        {label: 'Website Developer', value: 'Website Developer'},
+        {label: 'Android Developer', value: 'Android Developer'},
+        {label: 'Designer', value: 'Designer'},
+        {label: 'Mobile Developer', value: 'Mobile Developer'},
+        {label: 'QC', value: 'QC'},
+        {label: 'IOS Developer', value: 'IOS Developer'},
+        {label: 'Mobile Developer', value: 'Mobile Developer'},
+        {label: 'Sales Marketing', value: 'Sales Marketing'},
+        {label: 'Recruiter', value: 'Recruiter'},
       ],
     };
     this.keyboardDidHide = this.keyboardDidHide.bind(this);
@@ -91,9 +96,9 @@ class CompanyMemberComponent extends Component {
         // console.log(temp);
         var x = Array.from(new Set(temp.map(JSON.stringify))).map(JSON.parse);
         // console.log("ket qua" ,x);
-        this.setState({
-          data: x,
-        });
+        // this.setState({
+        //   data: x,
+        // });
 
         this.setState({ dataMB: this.props.dataCM });
         this.setState({ dataSearch: this.props.dataCM });
@@ -113,6 +118,23 @@ class CompanyMemberComponent extends Component {
         Alert.alert('Thông báo', this.props.errorCM);
       }, 10);
     }
+  }
+  setOpen(open) {
+    this.setState({
+      open
+    });
+  }
+
+  setValue(callback) {
+    this.setState(state => ({
+      value: callback(state.value)
+    }));
+  }
+
+  setItems(callback) {
+    this.setState(state => ({
+      items: callback(state.items)
+    }));
   }
 
   renderItem = item => (
@@ -177,7 +199,7 @@ class CompanyMemberComponent extends Component {
   };
 
   itemSearch = text => {
-    console.log(text.length);
+    console.log(text);
     if (text.length >= 1) {
       const newData = this.state.dataSearch.filter(item => {
         // console.log(item);
@@ -192,6 +214,7 @@ class CompanyMemberComponent extends Component {
     }
   };
   render() {
+    // console.log('data==', this.state.data);
     return (
       <View style={{ flex: 1 }}>
         <Header
@@ -214,6 +237,7 @@ class CompanyMemberComponent extends Component {
               justifyContent: 'center',
               alignItems: 'center',
               marginHorizontal: 10,
+
             }}>
             <View
               style={{
@@ -224,7 +248,12 @@ class CompanyMemberComponent extends Component {
                 borderWidth: 1,
                 borderRadius: 20,
                 borderColor: '#BFBFBF',
-                flex: 1
+                
+                flex: 0.5
+
+
+
+
               }}>
               <Icon
                 name="search"
@@ -250,14 +279,22 @@ class CompanyMemberComponent extends Component {
                 }}
                 placeholder={this.props.t('Tìm kiếm tên ...')}></TextInput>
             </View>
+            <View style={{ flex: 0.5}}>
+              <ListPotion datalist={this.state.data} onPressChooseType={(text)=>this.itemSearch(text)}/>
+
+             
+            </View>
+
+
+
 
           </View>
           <View style={{ marginBottom: 40, flex: 1 }}>
             <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}>
+              showsHorizontalScrollIndicator={false}>
               <FlatList
                 data={this.state.dataMB}
-                
+
                 keyExtractor={(item, index) => String(index)}
                 renderItem={this.renderItem}
                 numColumns={2}

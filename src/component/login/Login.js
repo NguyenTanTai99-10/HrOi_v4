@@ -11,7 +11,8 @@ import {
    Alert,
    ImageBackground,
    Image,
-   Platform
+   Platform,
+   Linking
 } from 'react-native';
 import { withTranslation } from 'react-i18next';
 
@@ -158,6 +159,11 @@ class Login extends Component {
          }, 10);
       }
    }
+   linkWeb =()=>{
+      url = "http://45.119.213.225/timecard/";
+      Linking.openURL(url);
+
+   }
    render() {
       // console.log('text===', this.state.password);
       return (
@@ -183,6 +189,7 @@ class Login extends Component {
                      style={{ height: Sizes.s200, width: screenWidth * 0.9 }}
                   />
                </View>
+               
                <TextInputAnimated
                   label={this.props.t('Tên đăng nhập')}
                   style={styles.input}
@@ -204,43 +211,58 @@ class Login extends Component {
                   <Icon
                      name={this.state.saveLogin ? 'check-circle' : 'circle'}
                      size={16}
-                     color={colors.blue}
+                     color='#bb64a1'
                   />
                   <Text style={styles.txtSave}>{this.props.t('Ghi nhớ')}</Text>
                </TouchableOpacity>
+               <View style={{justifyContent:'center' , alignItems:"center"}}>
+                  
                <TouchableOpacity style={styles.btnLogin}
                   onPress={this.onPressLogin}
                >
                   <Text style={styles.txtBtnLogin}>{this.props.t('Đăng nhập')}</Text>
                </TouchableOpacity>
+                  </View>
+
                <View style={styles.view}>
                   <TouchableOpacity
                      style={styles.subView}
                      onPress={() => this.props.navigation.navigate('FogetPasswordConatiner')}
                   >
-                     <Text style={styles.txtsignup}>{this.props.t('Quên mật khẩu')}</Text>
+                     <Text style={styles.txtsignup}>{this.props.t('Quên mật khẩu')} ?</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity
-                     style={styles.subView}
-                  // onPress={() => this.props.navigation.navigate('SignUp')}
-                  >
-                     <Text style={styles.txtsignup}>{this.props.t('Đăng kí')}</Text>
-                  </TouchableOpacity>
+                 
                </View>
                <View style={styles.view}>
                   <TouchableOpacity
-                     style={styles.subView1}
+                     style={{flexDirection:'row' , backgroundColor:'#4267b2',justifyContent:'center', alignItems:"center" , paddingRight:10 , width:"55%"}}
                   // onPress={() => this.props.navigation.navigate('Forget')}
                   >
-                     <Image source={Images.ic_facebook} style={{ height: Sizes.s140, width: Sizes.s140 }} resizeMode='contain' />
+                     
+                     <Image source={Images.ic_facebook} style={{ height: 50, width: 50 }} resizeMode='contain' />
+                     <Text style={{color:'white' ,paddingLeft:10,fontSize: Sizes.h30,}}>Sign in with Facebook</Text>
                   </TouchableOpacity>
+                  
                   <TouchableOpacity
-                     style={styles.subView1}
-                  // onPress={() => this.props.navigation.navigate('SignUp')}
+                     style={{flexDirection:'row' , backgroundColor:'#f44336', justifyContent:'center', alignItems:"center" , paddingRight:10,width:"55%" , marginTop:10}}
+                  // onPress={() => this.props.navigation.navigate('Forget')}
+                  // #f44336
                   >
-                     <Image source={Images.ic_gmail} style={{ height: Sizes.s140, width: Sizes.s140 }} resizeMode='contain' />
-
-
+                     
+                     <Image source={Images.google_png} style={{ height: 50, width: 50 }} resizeMode='contain' />
+                     <Text style={{color:'white' ,paddingLeft:10,fontSize: Sizes.h30,}}>Sign in with Google</Text>
+                  </TouchableOpacity>
+               </View>
+               <View style={{ justifyContent: 'center', alignItems: 'center' , marginTop:10 }}>
+                  
+                  <TouchableOpacity onPress={()=>{this.linkWeb()}}
+                  style={{ flexDirection:'row' }}
+                  >
+                  <Text style={[styles.txtSave,{fontSize:12}]}>
+                        {this.props.t('Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây')}
+                        </Text>
+                        
+                        
                   </TouchableOpacity>
                </View>
             </ImageBackground>
@@ -271,12 +293,13 @@ const styles = StyleSheet.create({
    },
    btnLogin: {
       height: Sizes.s85,
-      backgroundColor: colors.blue,
+      backgroundColor: '#bb64a1',
       justifyContent: 'center',
       alignItems: 'center',
       marginHorizontal: Sizes.h32,
       marginTop: Sizes.s40,
       borderRadius: Sizes.s100,
+      width: '47%',
    },
    txtBtnLogin: {
       fontSize: Sizes.h36,
@@ -284,30 +307,30 @@ const styles = StyleSheet.create({
       // fontFamily: fonts.bold,
    },
    view: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      padding: Sizes.h32,
+      // flexDirection: 'row',
+      alignItems:'center',
+      justifyContent: 'center',
+      
    },
    subView: {
       height: Sizes.s85,
-      borderRadius: Sizes.s100,
-      backgroundColor: colors.green1,
+      
       justifyContent: 'center',
       alignItems: 'center',
       width: '47%',
    },
    subView1: {
-      height: Sizes.s85,
-      borderRadius: Sizes.s100,
-      // backgroundColor: colors.green1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '47%',
+      // height: Sizes.s85,
+      // borderRadius: Sizes.s100,
+      // // backgroundColor: colors.green1,
+      // justifyContent: 'center',
+      // alignItems: 'center',
+      // width: '47%',
    },
    txtsignup: {
       fontSize: Sizes.h30,
       textAlign: 'center',
-      color: colors.white,
+      color: '#bb64a1',
       // fontFamily: fonts.semibold,
    },
    save: {
@@ -318,7 +341,7 @@ const styles = StyleSheet.create({
    },
    txtSave: {
       fontSize: Sizes.h32,
-      color: colors.blue,
+      color: '#bb64a1',
       marginLeft: Sizes.h16,
       // fontFamily: fonts.medium,
    },

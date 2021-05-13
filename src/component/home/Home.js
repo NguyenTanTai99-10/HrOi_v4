@@ -157,8 +157,8 @@ class Home extends Component {
               marginHorizontal: Sizes.s30,
               height: Sizes.s160,
             }}>
-            <View style={{flex: 0.5, flexDirection: 'column'}}>
-              <View
+            <View style={{flex: 0.5, flexDirection: 'column' , justifyContent:"center" , alignItems:'center'}}>
+              {/* <View
                 style={{
                   flex: 0.5,
                   flexDirection: 'row',
@@ -167,7 +167,7 @@ class Home extends Component {
                 }}>
                 <Icon name="wifi" size={Sizes.s40} style={{color: '#91D5FF'}}></Icon>
                 <Text style={{fontSize: Sizes.s40, paddingLeft: Sizes.s30}}>Wifi</Text>
-              </View>
+              </View> */}
               <View style={{flex: 0.5, flexDirection: 'row'}}>
                 <Icon
                   name="calendar-alt"
@@ -199,11 +199,14 @@ class Home extends Component {
           <View
             style={{
               flexDirection: 'row',
+              
+              
 
               //   marginVertical: 15,
               marginHorizontal: Sizes.s30,
             }}>
-            <TouchableOpacity
+              {this.state.title === 'check in'?  
+              <TouchableOpacity
             onPress={()=>{
               this.props.navigation.navigate('RequireLateContainer')
             }}
@@ -211,24 +214,53 @@ class Home extends Component {
               <ImageBackground
                 source={Images.bg_bt_request_late}
                 style={{
-                  height: Sizes.s200,
-                  width: (screenWidth * 0.9) / 2,
-                  flexDirection: 'row',
+                  height: Sizes.s180,
+                  width: (screenWidth *0.9) / 2,
+                  // backgroundColor:'red',
+                  // flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius:10,
+                  
+                }}
+                resizeMode="stretch">
+                <Image
+                  source={Images.ic_request_late}
+                  style={{height: Sizes.s100, width: Sizes.s100,paddingTop:20 }}
+                  resizeMode="contain"></Image>
+                <Text
+                numberOfLines={1}
+                  style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40  ,width:'50%' }}>
+                  {this.props.t('Xin đi trễ')}
+                </Text>
+              </ImageBackground>
+            </TouchableOpacity>:<TouchableOpacity
+            onPress={()=>{
+              this.props.navigation.navigate('RequireLateContainer')
+            }}
+            >
+              <ImageBackground
+                source={Images.bg_bt_request_late}
+                style={{
+                  height: Sizes.s180,
+                  width: (screenWidth *0.9) / 2,
+                  // flexDirection: 'row',
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}
-                resizeMode="contain">
+                resizeMode="stretch">
                 <Image
                   source={Images.ic_request_late}
                   style={{height: Sizes.s100, width: Sizes.s100}}
                   resizeMode="contain"></Image>
                 <Text
-                numberOfLines={1}
-                  style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40  ,width:'50%'}}>
-                  {this.props.t('Xin đi trễ')}
+                // numberOfLines={1}
+                  style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40  }}>
+                  {this.props.t('Xin về sớm')}
                 </Text>
               </ImageBackground>
-            </TouchableOpacity>
+            </TouchableOpacity>}
+           
             {this.state.title === 'check in' ? (
               <TouchableOpacity
                 onPress={() => {
@@ -243,14 +275,15 @@ class Home extends Component {
                 <ImageBackground
                   source={Images.bg_bt_check_in}
                   style={{
-                    height: Sizes.s200,
-                    width: (screenWidth * 0.9) / 2,
+                    height: Sizes.s180,
+                    width: (screenWidth *0.9) / 2,
                     marginLeft: Sizes.s20,
-                    flexDirection: 'row',
+                    // flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    
                   }}
-                  resizeMode="contain">
+                  resizeMode="stretch">
                   <Image
                     source={Images.ic_check_in}
                     style={{height: Sizes.s100, width: Sizes.s100}}
@@ -276,14 +309,14 @@ class Home extends Component {
                 <ImageBackground
                   source={Images.bg_bt_check_in}
                   style={{
-                    height: Sizes.s200,
-                    width: (screenWidth * 0.9) / 2,
+                    height: Sizes.s180,
+                    width: (screenWidth *0.9) / 2,
                     marginLeft: 10,
-                    flexDirection: 'row',
+                    // flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}
-                  resizeMode="contain">
+                  resizeMode="stretch">
                   <Image
                     source={Images.ic_check_in}
                     style={{height: Sizes.s100, width: Sizes.s100}}
@@ -360,14 +393,14 @@ class Home extends Component {
               </View>
             )}
           </View>
-          <View style={{justifyContent: 'center', alignItems: 'center', flex:1 , paddingBottom:Platform.OS === 'ios' ? null : Sizes.s40}}>
+          {/* <View style={{justifyContent: 'center', alignItems: 'center', flex:1 , paddingBottom:Platform.OS === 'ios' ? null : Sizes.s40}}>
             
           
             <Image source={Images.time_management} style={{ height:screenWidth , width:screenWidth  }}
             resizeMode='contain'
             />
       
-          </View>
+          </View> */}
           <WalletModal
                ref={this.walletModal}
                modalTitle="Bạn có muôn yêu cầu OT"

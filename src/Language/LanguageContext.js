@@ -22,7 +22,7 @@ const resources = {
       "Bạn chưa checkout": "Bạn chưa Check Out",
       "Thành công checkin": "Check In thành công",
       "Thành công checkout": "Check Out thành công",
-
+      "Xin về sớm": "Xin về sớm",
     //=====Attendance===
     "Ngày tháng" :"Ngày tháng",
     "Thời gian" :"Thời gian",
@@ -31,6 +31,7 @@ const resources = {
     "Đúng giờ" :"Đúng giờ",
     "Trễ giờ":"Trễ giờ",
     "Đến sớm": "Đến sớm",
+    
     //=====Member===
     "Tìm kiếm tên ...":"Tìm kiếm tên...",
     "Thành viên": "Thành viên",
@@ -90,6 +91,8 @@ const resources = {
     "Nghề nghiệp" : "Nghề nghiệp" ,
     //=====Forgot password===
     "Quên mật khẩu" :"Quên mật khẩu",
+    "Thay đổi" :"Thay đổi",
+    "Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây" :"Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây"
     
 
     
@@ -116,6 +119,7 @@ const resources = {
       //=====Home===
       "Trang chủ": "Home",
       "Xin đi trễ": "Request to go late",
+      "Xin về sớm": "Request to go soon",
       "Bạn chưa checkin": "You are not Check In",
       "Bạn chưa checkout": "You are not Check Out",
       "Thành công checkin": "Check In Successed",
@@ -188,6 +192,9 @@ const resources = {
     "Nghề nghiệp" : "Position" ,
     //=====Forgot password===
     "Quên mật khẩu" :"Forgot password",
+    "Thay đổi" :"Update",
+    "Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây" : "Only invited user can use this app. Please go to service page create account .  Click here"
+
 
 
       
