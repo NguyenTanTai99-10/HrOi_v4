@@ -86,4 +86,4 @@ import PushNotificationIOS from '@react-native-community/push-notification-ios';
           });
      }
  }
- export  const notification = new Notification();
+ export  const notificationIOS = new Notification();
