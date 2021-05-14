@@ -3,17 +3,20 @@ import {View, Text, ImageBackground, Image} from 'react-native';
 import Header from './custom/Header';
 import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
 import Images from '../res/image';
+import { useTranslation } from 'react-i18next';
 
 const InfoMemberComponent = ({route, props, navigation}) => {
   console.log('props==', route.params.item);
   const data = route.params.item;
   console.log('data==', data);
+  const { t, i18n } = useTranslation();
  
 
   return (
+
     <View style={{flex: 1}}>
       <Header
-        title="Attendance Time"
+        title={t('Detail Member')}
         isShowBack
         onPressBack={() => navigation.goBack()}
       />
@@ -70,7 +73,7 @@ const InfoMemberComponent = ({route, props, navigation}) => {
                 style={{width: 30, height: 30}}
               />
 
-              <Text style={{marginLeft:10,fontSize: 17}}>Position:</Text>
+              <Text style={{marginLeft:10,fontSize: 17}}>{t('Nghề nghiệp')}:</Text>
               <Text style={{marginLeft:5,fontSize: 17}}>
                   {data.position}
 
@@ -82,7 +85,7 @@ const InfoMemberComponent = ({route, props, navigation}) => {
                 style={{width: 30, height: 30}}
               />
 
-              <Text style={{marginLeft:10,fontSize: 17}}>BirthDay:</Text>
+              <Text style={{marginLeft:10,fontSize: 17}}>{t('Ngày sinh')}:</Text>
               <Text style={{marginLeft:5,fontSize: 17}}>
                   {data.dob}
 
@@ -93,7 +96,7 @@ const InfoMemberComponent = ({route, props, navigation}) => {
                 style={{width: 30, height: 30}}
               />
 
-              <Text style={{marginLeft:10,fontSize: 17}}>Phone:</Text>
+              <Text style={{marginLeft:10,fontSize: 17}}>{t('Số điện thoại')}:</Text>
               <Text style={{marginLeft:5,fontSize: 17}}>
                   {data.phone}
 
@@ -104,7 +107,7 @@ const InfoMemberComponent = ({route, props, navigation}) => {
                 style={{width: 30, height: 30}}
               />
 
-              <Text style={{marginLeft:10,fontSize: 17}}>Email:</Text>
+              <Text style={{marginLeft:10,fontSize: 17}}>{t('Email')}:</Text>
               <Text style={{marginLeft:5,fontSize: 17}}>
                   {data.email}
 
@@ -115,7 +118,7 @@ const InfoMemberComponent = ({route, props, navigation}) => {
                 style={{width: 30, height: 30}}
               />
 
-              <Text style={{marginLeft:10,fontSize: 17}}>Skype:</Text>
+              <Text style={{marginLeft:10,fontSize: 17}}>{t('skype')}:</Text>
               <Text style={{marginLeft:5,fontSize: 17}}>
                   {data.skype}
 
@@ -127,5 +130,6 @@ const InfoMemberComponent = ({route, props, navigation}) => {
     </View>
   );
 };
+
 
 export default InfoMemberComponent;

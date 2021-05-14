@@ -33,9 +33,10 @@ class UpdateInfoPersonComponent extends Component {
     this.state = {
       name: 'Đỗ Hữu Thiện',
       birthday: '1986-03-05',
-      gmai: 'fermatandrew@gmail.com',
+      email: 'fermatandrew@gmail.com',
       phone: '0987996939',
       position: 'Wedsite Developer',
+      skype : 'do.thien' ,
       animated: false,
       tittlePhoto: [
         {title: 'Take Photo', value: 'asda123sdasd'},
@@ -176,22 +177,6 @@ class UpdateInfoPersonComponent extends Component {
                 borderRadius: 20,
                 height:50
               }}>
-              <Text style={{paddingHorizontal: 10}}>{this.props.t('Gmail')} :</Text>
-              <TextInput
-                value={this.state.gmai}
-                style={{width: screenWidth * 0.6}}></TextInput>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginHorizontal: 40,
-                marginVertical: 10,
-                borderColor: 'pink',
-                borderWidth: 1,
-                borderRadius: 20,
-                height:50
-              }}>
               <Text style={{paddingHorizontal: 10}}>{this.props.t('Số điện thoại')} :</Text>
               <TextInput
                 value={this.state.phone}
@@ -211,6 +196,38 @@ class UpdateInfoPersonComponent extends Component {
               <Text style={{paddingHorizontal: 10}}>{this.props.t('Nghề nghiệp')} :</Text>
               <TextInput
                 value={this.state.position}
+                style={{width: screenWidth * 0.6}}></TextInput>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginHorizontal: 40,
+                marginVertical: 10,
+                borderColor: 'pink',
+                borderWidth: 1,
+                borderRadius: 20,
+                height:50
+              }}>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Email')} :</Text>
+              <TextInput
+                value={this.state.email}
+                style={{width: screenWidth * 0.6}}></TextInput>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginHorizontal: 40,
+                marginVertical: 10,
+                borderColor: 'pink',
+                borderWidth: 1,
+                borderRadius: 20,
+                height:50
+              }}>
+              <Text style={{paddingHorizontal: 10}}>{this.props.t('Skype')} :</Text>
+              <TextInput
+                value={this.state.skype}
                 style={{width: screenWidth * 0.6}}></TextInput>
             </View>
             <View style={{justifyContent: 'center', alignItems: 'center'}}>

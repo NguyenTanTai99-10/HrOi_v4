@@ -18,8 +18,10 @@ import {
 } from 'react-native';
 import Images from '../../res/image';
 import Sizes from '../../utils/Sizes';
+import { useTranslation } from 'react-i18next';
 
 const BottomSheetPhoto = forwardRef((props, ref) => {
+  const { t, i18n } = useTranslation();
   const [show, setShow] = useState(false);
   const [selectItem, setSelectItem] = useState('');
   const time = 300;
@@ -100,7 +102,7 @@ const BottomSheetPhoto = forwardRef((props, ref) => {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Text style={{color: 'white'}}>Take Photo</Text>
+                  <Text style={{color: 'white'}}>{t('Take Photo')}</Text>
                   {/* {selectItem===item?<Image source={require("../../res/image/img/arrow-up.png")} style={{ width: Sizes.h16, height: Sizes.h16, resizeMode: 'contain' }} />:null} */}
                 </TouchableOpacity>
               </View>
@@ -131,7 +133,7 @@ const BottomSheetPhoto = forwardRef((props, ref) => {
                     alignItems: 'center',
                    
                   }}>
-                  <Text style={{color: 'white'}}>Choose From Library</Text>
+                  <Text style={{color: 'white'}}>{t('Choose From Library')}</Text>
                  
                 </TouchableOpacity>
               </View>

@@ -86,13 +86,22 @@ const resources = {
     "Sửa thông tin cá nhân":"Sửa thông tin cá nhân",
     "Họ và tên" :"Họ và tên",
     "Ngày sinh": "Ngày sinh",
-    "Gamil": "Gamil",
+    "Email": "Email",
     "Số điện thoại" : "Số điện thoại",
     "Nghề nghiệp" : "Nghề nghiệp" ,
     //=====Forgot password===
     "Quên mật khẩu" :"Quên mật khẩu",
     "Thay đổi" :"Thay đổi",
-    "Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây" :"Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây"
+    "Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây" :"Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây",
+    //=====Detail Member======
+    "Detail Member":"Chi tiết thành viên",
+    "Họ và tên" :"Họ và tên",
+    "Ngày sinh": "Ngày sinh",
+    "Email": "Email",
+    "Số điện thoại" : "Phone",
+    //=====BottomSheetPhoto========
+    "Take Photo" : "Chụp ảnh",
+    "Choose From Library":"Thư viện"
     
 
     
@@ -187,13 +196,22 @@ const resources = {
     "Sửa thông tin cá nhân": "Update personal information",
     "Họ và tên" :"Name",
     "Ngày sinh": "Birthday",
-    "Gamil": "Gamil",
+    "Email": "Email",
     "Số điện thoại" : "Phone",
     "Nghề nghiệp" : "Position" ,
     //=====Forgot password===
     "Quên mật khẩu" :"Forgot password",
     "Thay đổi" :"Update",
-    "Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây" : "Only invited user can use this app. Please go to service page create account .  Click here"
+    "Chỉ người dùng được mời mới có thể sử dụng ứng dụng này. Vui lòng vào trang dịch vụ tạo tài khoản. Bấm vào đây" : "Only invited user can use this app. Please go to service page create account .  Click here",
+    //=====Detail Member======
+    "Detail Member":"Detail Member",
+    "Họ và tên" :"Name",
+    "Ngày sinh": "Birthday",
+    "Email": "Email",
+    "Số điện thoại" : "Phone",
+    //=====BottomSheetPhoto========
+    "Take Photo" : "Take Photo",
+    "Choose From Library":"Choose From Library"
 
 
 

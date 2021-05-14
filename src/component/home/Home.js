@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   View,
   ImageBackground,
   Image,
-  
+
   TouchableOpacity,
   Platform
 } from 'react-native';
@@ -14,7 +14,7 @@ import HeaderCustom from '../custom/HeaderCustom';
 
 
 
-import {colors, fonts, screenWidth, screenHeight} from '../../res/style/theme';
+import { colors, fonts, screenWidth, screenHeight } from '../../res/style/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import moment from 'moment';
 const HEADER_MAX_HEIGHT = heightPercentage('55%');
@@ -24,7 +24,7 @@ import {
   heightPercentageToDP as heightPercentage,
 } from 'react-native-responsive-screen';
 import Header from '../custom/Header';
-import {notification} from '../Notification/NotificationIOS';
+import { notification } from '../Notification/NotificationIOS';
 import { withTranslation } from 'react-i18next';
 import WalletModal from '../custom/WalletModal';
 
@@ -33,8 +33,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hourCheckOur:'',
-      minuteCheckOur:'',
+      hourCheckOur: '',
+      minuteCheckOur: '',
       timeChekcIn: '',
       time: '',
       timeIn: '',
@@ -52,10 +52,11 @@ class Home extends Component {
     setInterval(() => {
       const a = new Date();
       const b = this.formatDate(a);
-      this.setState({time: b});
+      this.setState({ time: b });
     }, 1000);
   }
   formatDate = date => {
+
     // console.log('date===',date);
     // const date = new Date(a);
     const h = `0${date.getHours()}`.slice(-2);
@@ -64,17 +65,18 @@ class Home extends Component {
     return `${h}:${m}:${s} `;
   };
 
-  
-  Notifi = data => {
-    // console.log('title==', data.Title);
+
+
+  Notifi = (data) => {
+    console.log("1");
     const option = {
       soundName: 'default',
       playSound: true,
       vibrate: true,
     };
     switch (data.Title) {
-       
-       case 'check in':
+
+      case 'check in':
         notification.configure();
         // notification.PushChancel('Cảm ơn đã Check In',
         // `Bạn đã Check In lúc ${data.timeCheckIn}`,);
@@ -98,47 +100,25 @@ class Home extends Component {
         break;
     }
 
-    // console.log('timeChekcIn', timeCheckIn);
-    // const option = {
-    //   soundName: 'default',
-    //   playSound: true,
-    //   vibrate: true,
-    // };
-    // notification.configure();
-    // notification.PushChancel('1');
-    // notification.PushNotifi(
-    //   '1',
-    //   'Chào mừng bạn đến với app chúng tôi',
-    //   `Bạn đã Check In lúc ${timeCheckIn.timeCheckIn}`,
-    //   option,
-    // );
-    // // notification.PushNotifiContent();
   };
 
-  
-   OverTime =(time)=>{
-    setTimeout(() => {
-      const h = `0${time}`.slice(1, 3);
+  OverTime = (time) => {
+    console.log("2");
+    const h = `0${time}`.slice(1, 3);
     // this.setState({hourCheckOur:h});
     const m = `0${time}`.slice(4, 6);
     // this.setState({minuteCheckOur:m});
     // console.log("=====thong bao===,",m);
-     if(h >= 10 && m > 0){
+    if (h >= 10 && m > 0) {
       this.walletModal.current.open()
 
     }
-  
-    }, 2000);
-     
-
-    // console.log("=====thong bao===,",time);
-    
   }
 
   render() {
     // console.log(this.state.timeNow);
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <Header
           isShowMenu
           onPressMenu={() => this.props.navigation.openDrawer()}
@@ -146,10 +126,10 @@ class Home extends Component {
         />
         <ImageBackground
           source={Images.ic_bg_timecard}
-          style={{height: screenHeight, width: screenWidth}}>
-            <View style={{justifyContent:'space-between'}}>
+          style={{ height: screenHeight, width: screenWidth }}>
+          <View style={{ justifyContent: 'space-between' }}>
 
-            </View>
+          </View>
           <View
             style={{
               flexDirection: 'row',
@@ -157,7 +137,7 @@ class Home extends Component {
               marginHorizontal: Sizes.s30,
               height: Sizes.s160,
             }}>
-            <View style={{flex: 0.5, flexDirection: 'column' , justifyContent:"center" , alignItems:'center'}}>
+            <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: "center", alignItems: 'center' }}>
               {/* <View
                 style={{
                   flex: 0.5,
@@ -168,12 +148,12 @@ class Home extends Component {
                 <Icon name="wifi" size={Sizes.s40} style={{color: '#91D5FF'}}></Icon>
                 <Text style={{fontSize: Sizes.s40, paddingLeft: Sizes.s30}}>Wifi</Text>
               </View> */}
-              <View style={{flex: 0.5, flexDirection: 'row'}}>
+              <View style={{ flex: 0.5, flexDirection: 'row' }}>
                 <Icon
                   name="calendar-alt"
                   size={25}
-                  style={{color: 'orange'}}></Icon>
-                <Text style={{paddingLeft: Sizes.s30, fontSize: Sizes.s30 , width:'80%'}}>
+                  style={{ color: 'orange' }}></Icon>
+                <Text style={{ paddingLeft: Sizes.s30, fontSize: Sizes.s30, width: '80%' }}>
                   {moment(new Date()).format('dddd')}{' '}
                   {moment(new Date()).format('L')}
                 </Text>
@@ -190,77 +170,77 @@ class Home extends Component {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Text style={{fontSize: Sizes.s60, fontWeight: 'bold', color: 'orange'}}>
+              <Text style={{ fontSize: Sizes.s60, fontWeight: 'bold', color: 'orange' }}>
                 {this.state.time}
-               
+
               </Text>
             </View>
           </View>
           <View
             style={{
               flexDirection: 'row',
-              
-              
+
+
 
               //   marginVertical: 15,
               marginHorizontal: Sizes.s30,
             }}>
-              {this.state.title === 'check in'?  
+            {this.state.title === 'check in' ?
               <TouchableOpacity
-            onPress={()=>{
-              this.props.navigation.navigate('RequireLateContainer')
-            }}
-            >
-              <ImageBackground
-                source={Images.bg_bt_request_late}
-                style={{
-                  height: Sizes.s180,
-                  width: (screenWidth *0.9) / 2,
-                  // backgroundColor:'red',
-                  // flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius:10,
-                  
+                onPress={() => {
+                  this.props.navigation.navigate('RequireLateContainer')
                 }}
-                resizeMode="stretch">
-                <Image
-                  source={Images.ic_request_late}
-                  style={{height: Sizes.s100, width: Sizes.s100,paddingTop:20 }}
-                  resizeMode="contain"></Image>
-                <Text
-                numberOfLines={1}
-                  style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40  ,width:'50%' }}>
-                  {this.props.t('Xin đi trễ')}
-                </Text>
-              </ImageBackground>
-            </TouchableOpacity>:<TouchableOpacity
-            onPress={()=>{
-              this.props.navigation.navigate('RequireLateContainer')
-            }}
-            >
-              <ImageBackground
-                source={Images.bg_bt_request_late}
-                style={{
-                  height: Sizes.s180,
-                  width: (screenWidth *0.9) / 2,
-                  // flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+              >
+                <ImageBackground
+                  source={Images.bg_bt_request_late}
+                  style={{
+                    height: Sizes.s180,
+                    width: (screenWidth * 0.9) / 2,
+                    // backgroundColor:'red',
+                    // flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+
+                  }}
+                  resizeMode="stretch">
+                  <Image
+                    source={Images.ic_request_late}
+                    style={{ height: Sizes.s100, width: Sizes.s100, paddingTop: 20 }}
+                    resizeMode="contain"></Image>
+                  <Text
+                    numberOfLines={1}
+                    style={{ color: 'white', fontWeight: 'bold', fontSize: Sizes.s35 }}>
+                    {this.props.t('Xin đi trễ')}
+                  </Text>
+                </ImageBackground>
+              </TouchableOpacity> : <TouchableOpacity
+                onPress={() => {
+                  this.props.navigation.navigate('RequireLateContainer')
                 }}
-                resizeMode="stretch">
-                <Image
-                  source={Images.ic_request_late}
-                  style={{height: Sizes.s100, width: Sizes.s100}}
-                  resizeMode="contain"></Image>
-                <Text
-                // numberOfLines={1}
-                  style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40  }}>
-                  {this.props.t('Xin về sớm')}
-                </Text>
-              </ImageBackground>
-            </TouchableOpacity>}
-           
+              >
+                <ImageBackground
+                  source={Images.bg_bt_request_late}
+                  style={{
+                    height: Sizes.s180,
+                    width: (screenWidth * 0.9) / 2,
+                    // flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                  resizeMode="stretch">
+                  <Image
+                    source={Images.ic_request_late}
+                    style={{ height: Sizes.s100, width: Sizes.s100 }}
+                    resizeMode="contain"></Image>
+                  <Text
+                    // numberOfLines={1}
+                    style={{ color: 'white', fontWeight: 'bold', fontSize: Sizes.s35 }}>
+                    {this.props.t('Xin về sớm')}
+                  </Text>
+                </ImageBackground>
+              </TouchableOpacity>}
+
             {this.state.title === 'check in' ? (
               <TouchableOpacity
                 onPress={() => {
@@ -268,49 +248,58 @@ class Home extends Component {
                     timeCheckIn: this.state.time,
                     Title: this.state.title,
                   });
-                  this.setState({timeIn: this.state.time});
-                  this.setState({checkIn: false});
-                  this.setState({title: 'check out'});
+                  this.setState({ timeIn: this.state.time });
+                  this.setState({ checkIn: false });
+                  this.setState({ title: 'check out' });
                 }}>
                 <ImageBackground
                   source={Images.bg_bt_check_in}
                   style={{
                     height: Sizes.s180,
-                    width: (screenWidth *0.9) / 2,
+                    width: (screenWidth * 0.9) / 2,
                     marginLeft: Sizes.s20,
                     // flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    
+
                   }}
                   resizeMode="stretch">
                   <Image
                     source={Images.ic_check_in}
-                    style={{height: Sizes.s100, width: Sizes.s100}}
+                    style={{ height: Sizes.s100, width: Sizes.s100 }}
                     resizeMode="contain"></Image>
                   <Text
-                    style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40}}>
+                    style={{ color: 'white', fontWeight: 'bold', fontSize: Sizes.s40 }}>
                     Check In
                   </Text>
                 </ImageBackground>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
-                onPress={() => {
-                  this.Notifi({
+                onPress={ async () => {
+
+                  //=========================
+                  await this.Notifi({
                     timeCheckIn: this.state.time,
                     Title: this.state.title,
                   });
-                  this.setState({timeOut: this.state.time});
-                  this.setState({checkOut: false});
-                  this.OverTime(this.state.time)
+
+                  await this.OverTime(this.state.time)
+                  //=========================
+
+
+
+                   this.setState({ timeOut: this.state.time });
+
+                  this.setState({ checkOut: false });
+                  
                   // this.setState({title: 'check in'});
                 }}>
                 <ImageBackground
                   source={Images.bg_bt_check_in}
                   style={{
                     height: Sizes.s180,
-                    width: (screenWidth *0.9) / 2,
+                    width: (screenWidth * 0.9) / 2,
                     marginLeft: 10,
                     // flexDirection: 'row',
                     justifyContent: 'center',
@@ -319,10 +308,10 @@ class Home extends Component {
                   resizeMode="stretch">
                   <Image
                     source={Images.ic_check_in}
-                    style={{height: Sizes.s100, width: Sizes.s100}}
+                    style={{ height: Sizes.s100, width: Sizes.s100 }}
                     resizeMode="contain"></Image>
                   <Text
-                    style={{color: 'white', fontWeight: 'bold', fontSize: Sizes.s40}}>
+                    style={{ color: 'white', fontWeight: 'bold', fontSize: Sizes.s40 }}>
                     Check Out
                   </Text>
                 </ImageBackground>
@@ -342,9 +331,9 @@ class Home extends Component {
                 }}>
                 <Image
                   source={Images.ic_error_data}
-                  style={{height: Sizes.s60, width: Sizes.s60}}
+                  style={{ height: Sizes.s60, width: Sizes.s60 }}
                   resizeMode="contain"></Image>
-                <Text style={{marginLeft: Sizes.s20}}>{this.props.t('Bạn chưa checkin')}</Text>
+                <Text style={{ marginLeft: Sizes.s20 }}>{this.props.t('Bạn chưa checkin')}</Text>
               </View>
             ) : (
               <View
@@ -355,14 +344,14 @@ class Home extends Component {
                 }}>
                 <Image
                   source={Images.ic_Done}
-                  style={{height: Sizes.s60, width: Sizes.s60}}
+                  style={{ height: Sizes.s60, width: Sizes.s60 }}
                   resizeMode="contain"></Image>
-                <Text style={{marginLeft: Sizes.s20}}>
-                {this.props.t('Thành công checkin')} {this.state.timeIn}
+                <Text style={{ marginLeft: Sizes.s20 }}>
+                  {this.props.t('Thành công checkin')} {this.state.timeIn}
                 </Text>
               </View>
             )}
-           
+
             {this.state.checkOut === true ? (
               <View
                 style={{
@@ -372,9 +361,9 @@ class Home extends Component {
                 }}>
                 <Image
                   source={Images.ic_error_data}
-                  style={{height: Sizes.s60, width: Sizes.s60}}
+                  style={{ height: Sizes.s60, width: Sizes.s60 }}
                   resizeMode="contain"></Image>
-                <Text style={{marginLeft: Sizes.s20}}>{this.props.t('Bạn chưa checkout')}</Text>
+                <Text style={{ marginLeft: Sizes.s20 }}>{this.props.t('Bạn chưa checkout')}</Text>
               </View>
             ) : (
               <View
@@ -385,10 +374,10 @@ class Home extends Component {
                 }}>
                 <Image
                   source={Images.ic_Done}
-                  style={{height: Sizes.s60, width: Sizes.s60}}
+                  style={{ height: Sizes.s60, width: Sizes.s60 }}
                   resizeMode="contain"></Image>
-                <Text style={{marginLeft: Sizes.s20}}>
-                {this.props.t('Thành công checkout')} {this.state.timeOut}
+                <Text style={{ marginLeft: Sizes.s20 }}>
+                  {this.props.t('Thành công checkout')} {this.state.timeOut}
                 </Text>
               </View>
             )}
@@ -402,14 +391,14 @@ class Home extends Component {
       
           </View> */}
           <WalletModal
-               ref={this.walletModal}
-               modalTitle="Bạn có muôn yêu cầu OT"
-               textSubmit="Gữi"
-              //  onSubmit={this.onCreateWallet}
-               cardName=""
-            />
+            ref={this.walletModal}
+            modalTitle="Bạn có muôn yêu cầu OT"
+            textSubmit="Gữi"
+            //  onSubmit={this.onCreateWallet}
+            cardName=""
+          />
 
-          
+
         </ImageBackground>
       </View>
     );
