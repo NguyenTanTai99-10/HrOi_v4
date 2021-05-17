@@ -175,7 +175,7 @@ class Home extends Component {
                 <Icon
                   name="calendar-alt"
                   size={25}
-                  style={{color: 'orange'}}></Icon>
+                  style={{color: 'orange' , alignSelf:'center'}}></Icon>
                 <Text
                   style={{
                     paddingLeft: Sizes.s30,

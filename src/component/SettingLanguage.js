@@ -67,7 +67,7 @@ import { withTranslation } from 'react-i18next';
                   </View>
                   <BottomSheet
                       ref={this.modal}
-                      title="Choose language"
+                      title={this.props.t('Chọn ngôn ngữ')}
                       data={this.state.dataLang}
                       modalHeight={150}
                       onPressSession={(title) => {

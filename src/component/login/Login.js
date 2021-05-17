@@ -239,7 +239,7 @@ class Login extends Component {
                   // onPress={() => this.props.navigation.navigate('Forget')}
                   >
                      
-                     <Image source={Images.ic_facebook} style={{ height: 50, width: 50 }} resizeMode='contain' />
+                     <Image source={Images.ic_facebook} style={{ height: 40, width: 40 }} resizeMode='contain' />
                      <Text style={{color:'white' ,paddingLeft:10,fontSize: Sizes.h30,}}>Sign in with Facebook</Text>
                   </TouchableOpacity>
                   
@@ -249,7 +249,7 @@ class Login extends Component {
                   // #f44336
                   >
                      
-                     <Image source={Images.google_png} style={{ height: 50, width: 50 }} resizeMode='contain' />
+                     <Image source={Images.google_png} style={{ height: 40, width: 40 }} resizeMode='contain' />
                      <Text style={{color:'white' ,paddingLeft:10,fontSize: Sizes.h30,}}>Sign in with Google</Text>
                   </TouchableOpacity>
                </View>

@@ -1,132 +1,170 @@
-import React, {Component} from 'react';
-import {Text, View, ImageBackground, FlatList, ScrollView} from 'react-native';
-import Header from './custom/Header';
-import {colors, fonts, screenWidth, screenHeight} from '../res/style/theme';
+import React from 'react';
+import {
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Images from '../res/image';
-import { withTranslation } from 'react-i18next';
+import {colors, screenHeight, screenWidth} from '../res/style/theme';
+import AttendanceCalendar from './custom/AttendanceCalendar';
+import Header from './custom/Header';
+import { useTranslation } from 'react-i18next';
+const time = (h, company_timezone) => {
+  let a = new Date(h).toLocaleString('en-US', {timeZone: company_timezone});
+  let b = new Date(a);
+  return b;
+};
+const company_time = (h) => {
+  let a = new Date(h);
+  return a;
+};
 
-class AttendanceComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Ontime'},
-        {date: '13/3/2021', time: '8:30/17:30', status: 'Late'},
-        {date: '12/3/2021', time: '8:30/17:30', status: 'Early'},
-        
-      ],
-    };
-  }
-  ChooseColor = (item) =>{
-   
-    
-    switch(item){
-      case "Ontime" :
-      return "blue";
-      break;
-      case "Late" :
-      return "red";
-      break;
-      case "Early" :
-      return "orange";
-      break;
-    }
-  
-    
-   
-  }
-  renderItem = (item, index) => (
-    <View
-      style={{
-        flexDirection: 'row',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        marginTop: 10,
-        flex: 3,
-        height: 50,
-        borderBottomWidth:1,
-        borderColor:"#BFBFBF"
-      }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'flex-start',
-        }}>
-        <Text style={{marginLeft: 10}}>{item.item.date}</Text>
-      </View>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{}}>{item.item.time}</Text>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'flex-end',
-          
-        }}>
-          <View style={[{ width:70 , height:30,justifyContent: 'center', 
-          alignItems: 'center',borderRadius:20, borderWidth:1.5 , marginRight:5 } , {borderColor:this.ChooseColor(item.item.status)
-          }] }>
-            <Text  style={{color:this.ChooseColor(item.item.status)}}>{item.item.status}</Text>
-          </View>
-        
-      </View>
+const AttendanceComponent = (props) => {
+    const { t, i18n } = useTranslation();
+  const [page, setPage] = React.useState(1);
+  const [attendanceList, setAttendanceList] = React.useState([]);
+  const [nowDate, setNowDate] = React.useState('');
+  const [sortType, setSortType] = React.useState(2);
+  return (
+    <View style={{flex: 1}}>
+      <Header 
+      title = {t('Điểm danh')}
+      isShowMenu 
+      onPressMenu={() => props.navigation.openDrawer()} />
+      <ImageBackground
+        source={Images.ic_bg_timecard}
+        style={{width: screenWidth, height: screenHeight, flex: 1}}
+        imageStyle={{flex: 1}}>
+
+{
+                sortType === 2 ?
+                    <AttendanceCalendar style={styles.container_body} listAttendace={attendanceList}
+                        getListAttendanceFollowMonth={()=>{console.log('123');}}
+                        time={time}
+                        // companyInfo={route.params.companyInfor}
+                        ></AttendanceCalendar>
+                    :
+                    <View style={styles.container_body}>
+                        <LinearGradient style={{
+                            flexDirection: 'row', justifyContent: 'space-between',
+                            padding: 10
+                            , backgroundColor: 'transparent', alignItems: 'center', marginLeft: 24, marginRight: 24, marginTop: 10, marginBottom: 10
+                        }}
+                            colors={[colors.gardient_from_button, colors.gardient_end_button]}
+                            start={{ x: 1, y: 0 }}
+                            end={{ x: 0, y: 0 }}>
+                            <Text style={{ color: 'white', fontSize: 14, fontWeight: 'bold' }}>Date</Text>
+                            <Text style={{ color: 'white', fontSize: 14, fontWeight: 'bold' }}>Time checkin/ Checkout</Text>
+                            <Text style={{ color: 'white', fontSize: 14, fontWeight: 'bold' }}>Status</Text>
+                        </LinearGradient>
+                        <FlatList style={{ flex: 1 }}
+                            // onEndReached={() => {
+                            //     if (state !== null && state.data !== null && state.data.length > 0) {
+                            //         dispatch(attendanceTimeAction(route.params.useInfor.id, route.params.useInfor.token, page, "attendance_time"))
+                            //     }
+                            // }}
+                            data={attendanceList}
+                            renderItem={({ item, index }) => {
+                                // let text = item.type === 1 ?
+                                //     checkTimeIn(time(item.created_at, route.params.companyInfor.timezone),
+                                //         route.params.companyInfor.opened_at)
+                                //         ?
+                                //         "On Time" : 'Later'
+                                //     :
+                                //     checkTimeOut(time(item.created_at, route.params.companyInfor.timezone)
+                                //         , route.params.companyInfor.closed_at)
+                                //         ?
+                                //         "On Time" : 'Early'
+                                return <View style={{
+                                    flexDirection: 'column', borderBottomWidth: 1,
+                                    borderBottomColor: colors.line, marginLeft: 24, marginRight: 24, marginTop: 10, marginBottom: 10
+                                }}>
+                                    <View style={{
+                                        flexDirection: 'row', justifyContent: 'space-between',
+                                        padding: 10
+                                        , alignItems: 'center'
+                                    }}>
+                                        <Text style={{ color: colors.black, fontSize: 14, fontWeight: 'bold' }}>{
+                                            FormatDate(item.created_at, "day") + "/" + FormatDate(item.created_at, "month") + "/" + FormatDate(item.created_at, "year")
+                                        }</Text>
+                                        <Text style={{ color: colors.black, fontSize: 14, fontWeight: 'bold' }}>
+
+                                            {/* {
+                                                (les(time(item.created_at, route.params.companyInfor.timezone).getHours())) + " : "
+                                                + les((time(item.created_at, route.params.companyInfor.timezone).getMinutes()))
+                                            } */}
+                                        </Text>
+                                        <Text style={{
+                                            color: text === 'On Time' ? colors.blue :
+                                                text === 'Later' ? colors.red : colors.yellow, fontSize: 12, fontWeight: 'bold'
+                                            , padding: 10, textAlign: 'center', textAlignVertical: 'center'
+                                            , borderWidth: 1, borderColor:
+                                                text === 'On Time' ? colors.blue :
+                                                    text === 'Later' ? colors.red : colors.yellow, width: 90,
+                                            borderRadius: 10,
+                                        }}>
+                                            {/* {
+                                               (item.type === 1 ? "Checkin " : "Checkout " )+ text
+                                            } */}
+                                        </Text>
+                                    </View>
+                                </View>
+                            }}>
+                        </FlatList>
+                    </View>
+            }
+        </ImageBackground>
     </View>
   );
+};
 
-  render() {
-    return (
-      <View style={{flex: 1}}>
-        <Header title={this.props.t('Điểm danh')}
-        isShowMenu
-        onPressMenu={() => this.props.navigation.openDrawer()}
-        
-        />
-        <ImageBackground
-          source={Images.ic_bg_timecard}
-          style={{width: screenWidth, height: screenHeight , flex:1}}
-          imageStyle={{flex:1}}
-          >
-          <View style={{marginHorizontal: 10, marginVertical: 20, flex: 1}}>
-            {/* {this.state.data.map((item)=>{
-              console.log(item.date);
-            })} */}
-            <ImageBackground
-              source={Images.ic_header_salary}
-              style={{height: 50}}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-
-                  height: 50,
-                  borderRadius: 10,
-                }}>
-                <Text style={{marginLeft: 10, color: 'white'}}>{this.props.t('Ngày tháng')}</Text>
-                <View>
-                <Text style={{color: 'white' , alignSelf:"center"}}>{this.props.t('Thời gian')}</Text>
-                <Text style={{color: 'white'}}>Checkin/Checkout </Text>
-                  </View>
-                <Text style={{marginRight: 10, color: 'white'}}>{this.props.t('Trạng thái')}</Text>
-              </View>
-            </ImageBackground>
-            
-              <ScrollView style={{flex:1 }}>
-                  <FlatList
-                style={{}}
-                data={this.state.data}
-                keyExtractor={(item, index) => String(index)}
-                renderItem={this.renderItem}
-              />
-              </ScrollView>
-            
-         
-          </View>
-        </ImageBackground>
-      </View>
-    );
-  }
+const les = (val) => {
+  return (val + "").length < 2 ? "0" + val : val;
 }
-export default withTranslation()(AttendanceComponent);
+const checkTimeIn = (time1, time2) => {
+  let time = time2.split(':')
+  let a = new Date(time1);
+  let b = new Date();
+  b.setHours(time[0]);
+  b.setMinutes(time[1]);
+  if ((a.getHours()) < b.getHours()) {
+      return true;
+  } else if ((a.getHours()) == b.getHours() && a.getMinutes() <= b.getMinutes()) {
+      return true;
+  } else {
+      return false;
+  }
+
+}
+const checkTimeOut = (time1, time2) => {
+  let time = time2.split(':')
+  let a = new Date(time1);
+  let b = new Date();
+  b.setHours(time[0]);
+  b.setMinutes(time[1]);
+  if ((a.getHours()) > b.getHours()) {
+      return true;
+  } else if ((a.getHours()) == b.getHours() && a.getMinutes() >= b.getMinutes()) {
+      return true;
+  } else {
+      return false;
+  }
+
+}
+const styles = StyleSheet.create({
+  container_body :{
+    flex: 1,
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignContent: 'center'
+  }
+
+  
+})
+
+
+export default AttendanceComponent;

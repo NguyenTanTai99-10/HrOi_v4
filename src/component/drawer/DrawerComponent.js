@@ -60,6 +60,7 @@ class DrawerComponent extends Component {
         title={` ${data.name}`}
         image ={this.state.data.avatar}
         isShowImage
+        onPressImage={()=>this.props.navigation.navigate('UpdateInfoPersonContainer')}
         
          />
         {/* <Header title='Hello Friend'

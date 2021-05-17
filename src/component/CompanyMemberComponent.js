@@ -221,7 +221,7 @@ class CompanyMemberComponent extends Component {
           title={this.props.t('Thành viên')}
           isShowImage
           image={this.state.imageAvt}
-          // onPressImage={()=>this.props.navigation.navigate('InfoPerson')}
+          onPressImage={()=>this.props.navigation.navigate('UpdateInfoPersonContainer')}
           isShowMenu
           onPressMenu={() => this.props.navigation.openDrawer()}
         />

@@ -50,6 +50,7 @@ const resources = {
     "Cài đặt": "Cài đặt",
     "Đăng xuất": "Đăng xuất",
     //=====Language===
+    "Chọn ngôn ngữ" : "Chọn ngôn ngữ",
     "Ngôn ngữ": "Ngôn ngữ",
     "Thay đổi ngôn ngữ": "Thay đổi ngôn ngữ",
     //=====Add permission===
@@ -160,6 +161,7 @@ const resources = {
     "Cài đặt": "Setting",
     "Đăng xuất": "Log out",
      //=====Language===
+     "Chọn ngôn ngữ" : "Choose language",
      "Ngôn ngữ": "Language",
      "Thay đổi ngôn ngữ": "Change language",
      //=====Add permission===

@@ -52,7 +52,9 @@ const Header = props => {
       {/* <Text>acb</Text> */}
     </TouchableOpacity>
   );
-  const images = image => (
+  const images = (image) => 
+ 
+  (
     // console.log(props.image;
 
     <TouchableOpacity 
@@ -142,6 +144,7 @@ Header.defaultProps = {
   onPressMenu: () => {},
   iconRight :()=>{},
   onPressNavigate:()=>{},
+  onPressImage :()=>{},
   onPressImage :()=>{}
 };
 const styles = StyleSheet.create({

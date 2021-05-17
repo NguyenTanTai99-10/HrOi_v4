@@ -6,6 +6,8 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icons from 'react-native-vector-icons/Ionicons';
+
 import { colors } from './src/res/style/theme';
 import { useTranslation } from 'react-i18next';
 
@@ -83,7 +85,7 @@ const bottomTab = () => {
             component={AttendanceContainer}
             options={{
                tabBarLabel: `${t('Điểm danh')}`,
-               tabBarIcon: ({ color }) => <Icon name="chart-bar" color={color} size={25} />,
+               tabBarIcon: ({ color }) => <Icon name="clock" color={color} size={25} />,
             }}
          />
           <Tab.Screen
@@ -91,7 +93,7 @@ const bottomTab = () => {
             component={CompanyMemberContainer}
             options={{
                tabBarLabel: `${t('Thành viên')}`,
-               tabBarIcon: ({ color }) => <Icon name="hospital-user" color={color} size={25} />,
+               tabBarIcon: ({ color }) => <Icon name="user" color={color} size={25} />,
             }}
          />
          <Tab.Screen
@@ -99,7 +101,7 @@ const bottomTab = () => {
             component={ButtonGetPemissionComponent}
             options={{
                tabBarLabel: `${t('Xin phép')}`,
-               tabBarIcon: ({ color }) => <Icon name="clipboard-list" color={color} size={25} />,
+               tabBarIcon: ({ color }) => <Icon name="calendar-check" color={color} size={25} />,
             }}
          />
       </Tab.Navigator>
