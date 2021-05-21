@@ -3,13 +3,14 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import  React,{useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
 
 import { colors } from './src/res/style/theme';
 import { useTranslation } from 'react-i18next';
+import RNBootSplash from "react-native-bootsplash";
 
 ////////////////////////////////////////////////////////////
 import LoginContainer from './src/container/login/LoginContainer';
@@ -119,6 +120,14 @@ const Drawers = () => {
 //stack navigation
 const Stack = createStackNavigator();
 const App = () => {
+   useEffect(() => {
+      setTimeout(() => {
+         RNBootSplash.hide()
+
+         
+      }, 1000);
+     
+   }, [])
    return (
       <NavigationContainer>
          <Stack.Navigator
